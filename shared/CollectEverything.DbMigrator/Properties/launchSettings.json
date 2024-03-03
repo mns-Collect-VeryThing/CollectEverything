@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CollectEverything.DbMigrator": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "CollectEverything.Projects": {
+      "path": "CollectEverything.Projects.abpmdl.json"
+    }
+  }
+}

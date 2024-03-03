@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "CollectEverything.Administration": {
+      "path": "CollectEverything.Administration.abpmdl.json"
+    }
+  }
+}

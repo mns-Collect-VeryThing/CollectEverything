@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "CollectEverything.IdentityService": {
+      "path": "CollectEverything.IdentityService.abpmdl.json"
+    }
+  }
+}

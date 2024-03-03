@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\services\administration\src\CollectEverything.Administration.EntityFrameworkCore\CollectEverything.Administration.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\CollectEverything.Hosting.Shared\CollectEverything.Hosting.Shared.csproj" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "CollectEverything.SaaS": {
+      "path": "CollectEverything.SaaS.abpmdl.json"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>CollectEverything.SaaS</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.0" />
+    <ProjectReference Include="..\..\src\CollectEverything.SaaS.EntityFrameworkCore\CollectEverything.SaaS.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\CollectEverything.SaaS.TestBase\CollectEverything.SaaS.TestBase.csproj" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="8.0.2" />
+  </ItemGroup>
+
+</Project>

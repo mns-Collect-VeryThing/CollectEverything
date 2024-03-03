@@ -1,0 +1,79 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "CollectEverything.Administration.Domain.Shared": {
+      "path": "src/CollectEverything.Administration.Domain.Shared/CollectEverything.Administration.Domain.Shared.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.Administration.Domain": {
+      "path": "src/CollectEverything.Administration.Domain/CollectEverything.Administration.Domain.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.Administration.Application.Contracts": {
+      "path": "src/CollectEverything.Administration.Application.Contracts/CollectEverything.Administration.Application.Contracts.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.Administration.Application": {
+      "path": "src/CollectEverything.Administration.Application/CollectEverything.Administration.Application.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.Administration.EntityFrameworkCore": {
+      "path": "src/CollectEverything.Administration.EntityFrameworkCore/CollectEverything.Administration.EntityFrameworkCore.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.Administration.MongoDB": {
+      "path": "src/CollectEverything.Administration.MongoDB/CollectEverything.Administration.MongoDB.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.Administration.HttpApi": {
+      "path": "src/CollectEverything.Administration.HttpApi/CollectEverything.Administration.HttpApi.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.Administration.HttpApi.Client": {
+      "path": "src/CollectEverything.Administration.HttpApi.Client/CollectEverything.Administration.HttpApi.Client.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.Administration.TestBase": {
+      "path": "test/CollectEverything.Administration.TestBase/CollectEverything.Administration.TestBase.abppkg.json",
+      "folder": "test"
+    },
+    "CollectEverything.Administration.EntityFrameworkCore.Tests": {
+      "path": "test/CollectEverything.Administration.EntityFrameworkCore.Tests/CollectEverything.Administration.EntityFrameworkCore.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "CollectEverything.Administration.MongoDB.Tests": {
+      "path": "test/CollectEverything.Administration.MongoDB.Tests/CollectEverything.Administration.MongoDB.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "CollectEverything.Administration.Domain.Tests": {
+      "path": "test/CollectEverything.Administration.Domain.Tests/CollectEverything.Administration.Domain.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "CollectEverything.Administration.Application.Tests": {
+      "path": "test/CollectEverything.Administration.Application.Tests/CollectEverything.Administration.Application.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "CollectEverything.Administration.HttpApi.Host": {
+      "path": "host/CollectEverything.Administration.HttpApi.Host/CollectEverything.Administration.HttpApi.Host.abppkg.json",
+      "folder": "host"
+    },
+    "CollectEverything.Administration.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/CollectEverything.Administration.HttpApi.Client.ConsoleTestApp/CollectEverything.Administration.HttpApi.Client.ConsoleTestApp.abppkg.json",
+      "folder": "test"
+    },
+    "CollectEverything.Administration.IdentityServer": {
+      "path": "host/CollectEverything.Administration.IdentityServer/CollectEverything.Administration.IdentityServer.abppkg.json",
+      "folder": "host"
+    },
+    "CollectEverything.Administration.Host.Shared": {
+      "path": "host/CollectEverything.Administration.Host.Shared/CollectEverything.Administration.Host.Shared.abppkg.json",
+      "folder": "host"
+    }
+  }
+}

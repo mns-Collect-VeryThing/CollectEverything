@@ -1,0 +1,79 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "CollectEverything.IdentityService.Domain.Shared": {
+      "path": "src/CollectEverything.IdentityService.Domain.Shared/CollectEverything.IdentityService.Domain.Shared.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.IdentityService.Domain": {
+      "path": "src/CollectEverything.IdentityService.Domain/CollectEverything.IdentityService.Domain.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.IdentityService.Application.Contracts": {
+      "path": "src/CollectEverything.IdentityService.Application.Contracts/CollectEverything.IdentityService.Application.Contracts.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.IdentityService.Application": {
+      "path": "src/CollectEverything.IdentityService.Application/CollectEverything.IdentityService.Application.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.IdentityService.EntityFrameworkCore": {
+      "path": "src/CollectEverything.IdentityService.EntityFrameworkCore/CollectEverything.IdentityService.EntityFrameworkCore.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.IdentityService.MongoDB": {
+      "path": "src/CollectEverything.IdentityService.MongoDB/CollectEverything.IdentityService.MongoDB.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.IdentityService.HttpApi": {
+      "path": "src/CollectEverything.IdentityService.HttpApi/CollectEverything.IdentityService.HttpApi.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.IdentityService.HttpApi.Client": {
+      "path": "src/CollectEverything.IdentityService.HttpApi.Client/CollectEverything.IdentityService.HttpApi.Client.abppkg.json",
+      "folder": "src"
+    },
+    "CollectEverything.IdentityService.TestBase": {
+      "path": "test/CollectEverything.IdentityService.TestBase/CollectEverything.IdentityService.TestBase.abppkg.json",
+      "folder": "test"
+    },
+    "CollectEverything.IdentityService.EntityFrameworkCore.Tests": {
+      "path": "test/CollectEverything.IdentityService.EntityFrameworkCore.Tests/CollectEverything.IdentityService.EntityFrameworkCore.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "CollectEverything.IdentityService.MongoDB.Tests": {
+      "path": "test/CollectEverything.IdentityService.MongoDB.Tests/CollectEverything.IdentityService.MongoDB.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "CollectEverything.IdentityService.Domain.Tests": {
+      "path": "test/CollectEverything.IdentityService.Domain.Tests/CollectEverything.IdentityService.Domain.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "CollectEverything.IdentityService.Application.Tests": {
+      "path": "test/CollectEverything.IdentityService.Application.Tests/CollectEverything.IdentityService.Application.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "CollectEverything.IdentityService.HttpApi.Host": {
+      "path": "host/CollectEverything.IdentityService.HttpApi.Host/CollectEverything.IdentityService.HttpApi.Host.abppkg.json",
+      "folder": "host"
+    },
+    "CollectEverything.IdentityService.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/CollectEverything.IdentityService.HttpApi.Client.ConsoleTestApp/CollectEverything.IdentityService.HttpApi.Client.ConsoleTestApp.abppkg.json",
+      "folder": "test"
+    },
+    "CollectEverything.IdentityService.IdentityServer": {
+      "path": "host/CollectEverything.IdentityService.IdentityServer/CollectEverything.IdentityService.IdentityServer.abppkg.json",
+      "folder": "host"
+    },
+    "CollectEverything.IdentityService.Host.Shared": {
+      "path": "host/CollectEverything.IdentityService.Host.Shared/CollectEverything.IdentityService.Host.Shared.abppkg.json",
+      "folder": "host"
+    }
+  }
+}
