@@ -1,0 +1,27 @@
+name: Collect&Verything CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Gateway Docker image
+      run: docker build . --file gateway/CollectEverything.Gateway/Dockerfile --tag gateway:dev
+    - name: Build the IdentityServer Docker image
+      run: docker build . --file apps/CollectEverything.AuthServer/Dockerfile --tag authserver:dev
+    - name: Build the Administration Docker image
+      run: docker build . --file services/administration/host/CollectEverything.AdministrationService.HttpApi.Host/Dockerfile --tag administration:dev
+    - name: Build the IdentityService Docker image
+      run: docker build . --file services/identity/host/CollectEverything.IdentityService.HttpApi.Host/Dockerfile --tag identityservice:dev
+    - name: Build the SaaS Docker image
+      run: docker build . --file services/saas/host/CollectEverything.SaaSService.HttpApi.Host/Dockerfile --tag saas:dev
