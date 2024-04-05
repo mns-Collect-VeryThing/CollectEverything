@@ -24,4 +24,4 @@ jobs:
     - name: Build the IdentityService Docker image
       run: docker build . --file services/identity/host/CollectEverything.IdentityService.HttpApi.Host/Dockerfile --tag identityservice:dev
     - name: Build the SaaS Docker image
-      run: docker build . --file services/saas/host/CollectEverything.SaaSService.HttpApi.Host/Dockerfile --tag saas:dev
+      run: docker build . --file services/saas/host/CollectEverything.SaaS.HttpApi.Host/Dockerfile --tag saas:dev
