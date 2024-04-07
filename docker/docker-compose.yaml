@@ -40,6 +40,6 @@ services:
       - '7600:7600'
     depends_on:
       database :
-        condition: service_healthy
+        condition: service_started
       migrator:
         condition: service_completed_successfully
