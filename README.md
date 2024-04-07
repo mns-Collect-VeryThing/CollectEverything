@@ -51,7 +51,11 @@ la gateway redirige aussi ma requête correctement.
 | Tye Dashboard    | 8000 |              |              |
 | Authentification | 7600 | admin        | 1q2w3E*      |
 | Postgre          | 5432 | postgres     | postgres     |
+| Redis            | 6379 |              |              |
 | Gateway          | 7500 |              |              |
 | Administration   | 7001 |              |              |
 | Identity         | 7002 |              |              |
 | Saas             | 7003 |              |              |
+| Front Blazor     | 5000 |              |              |
+| Front Angular    | 4200 |              |              |
+
