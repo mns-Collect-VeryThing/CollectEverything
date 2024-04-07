@@ -30,8 +30,3 @@ services:
 #   bindings:
 #     - protocol: https
 #       port: 5000
-# - name: collecteverything-blazor-server
-#   project: apps/CollectEverything.Blazor.Server/CollectEverything.Blazor.Server.csproj
-#   bindings:
-#     - protocol: https
-#       port: 5001
