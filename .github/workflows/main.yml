@@ -19,11 +19,13 @@ jobs:
       
     steps:
     - uses: actions/checkout@v4
+      
     - name: Log in to registry
       run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+      
     - name: Build the Gateway Docker image
       run: docker build . --file gateway/CollectEverything.Gateway/Dockerfile --tag gateway:dev
-    - name: Push image
+    - name: Push the Gateway Docker image
       run: |
         IMAGE_ID=ghcr.io/${{ github.repository_owner }}/gateway
         IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
@@ -34,11 +36,59 @@ jobs:
         echo VERSION=$VERSION
         docker tag gateway:dev $IMAGE_ID:$VERSION
         docker push $IMAGE_ID:$VERSION
+        
     - name: Build the IdentityServer Docker image
       run: docker build . --file apps/CollectEverything.AuthServer/Dockerfile --tag authserver:dev
+    - name: Push the IdentityServer Docker image
+      run: |
+        IMAGE_ID=ghcr.io/${{ github.repository_owner }}/identityserver
+        IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+        VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+        [ [ "${{ github.ref }}" == "refs/tags/"* ] ] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+        [ "$VERSION" == "main" ] && VERSION=latest
+        echo IMAGE_ID=$IMAGE_ID
+        echo VERSION=$VERSION
+        docker tag identityserver:dev $IMAGE_ID:$VERSION
+        docker push $IMAGE_ID:$VERSION
+        
     - name: Build the Administration Docker image
       run: docker build . --file services/administration/host/CollectEverything.Administration.HttpApi.Host/Dockerfile --tag administration:dev
+    - name: Push the Administration Docker image
+      run: |
+        IMAGE_ID=ghcr.io/${{ github.repository_owner }}/administration
+        IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+        VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+        [ [ "${{ github.ref }}" == "refs/tags/"* ] ] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+        [ "$VERSION" == "main" ] && VERSION=latest
+        echo IMAGE_ID=$IMAGE_ID
+        echo VERSION=$VERSION
+        docker tag administration:dev $IMAGE_ID:$VERSION
+        docker push $IMAGE_ID:$VERSION
+    
     - name: Build the IdentityService Docker image
       run: docker build . --file services/identity/host/CollectEverything.IdentityService.HttpApi.Host/Dockerfile --tag identityservice:dev
+    - name: Push the IdentityService Docker image
+      run: |
+        IMAGE_ID=ghcr.io/${{ github.repository_owner }}/identityservice
+        IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+        VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+        [ [ "${{ github.ref }}" == "refs/tags/"* ] ] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+        [ "$VERSION" == "main" ] && VERSION=latest
+        echo IMAGE_ID=$IMAGE_ID
+        echo VERSION=$VERSION
+        docker tag identityservice:dev $IMAGE_ID:$VERSION
+        docker push $IMAGE_ID:$VERSION
+      
     - name: Build the SaaS Docker image
       run: docker build . --file services/saas/host/CollectEverything.SaaS.HttpApi.Host/Dockerfile --tag saas:dev
+    - name: Push the SaaS Docker image
+      run: |
+        IMAGE_ID=ghcr.io/${{ github.repository_owner }}/saas
+        IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+        VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+        [ [ "${{ github.ref }}" == "refs/tags/"* ] ] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+        [ "$VERSION" == "main" ] && VERSION=latest
+        echo IMAGE_ID=$IMAGE_ID
+        echo VERSION=$VERSION
+        docker tag saas:dev $IMAGE_ID:$VERSION
+        docker push $IMAGE_ID:$VERSION
