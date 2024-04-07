@@ -28,7 +28,7 @@ jobs:
         [ "$VERSION" == "main" ] && VERSION=latest
         echo IMAGE_ID=$IMAGE_ID
         echo VERSION=$VERSION
-        docker tag gateway $IMAGE_ID:$VERSION
+        docker tag gateway:dev $IMAGE_ID:$VERSION
         docker push $IMAGE_ID:$VERSION
     - name: Build the IdentityServer Docker image
       run: docker build . --file apps/CollectEverything.AuthServer/Dockerfile --tag authserver:dev
