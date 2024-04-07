@@ -39,7 +39,7 @@ services:
     ports:
       - '7600:7600'
     depends_on:
-      db :
+      database :
         condition: service_healthy
       migrator:
         condition: service_completed_successfully
