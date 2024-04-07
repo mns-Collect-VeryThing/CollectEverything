@@ -18,8 +18,28 @@ services:
   redis:
     container_name: Redis
     image: redis:7.2-alpine
+    restart: always
     ports:
       - '6379:6379'
     command: redis-server --save 20 1 --loglevel warning
     volumes:
       - ./redis-volume:/data
+  
+  migrator:
+    container_name: Migrator
+    image: ghcr.io/mns-collect-verything/dbmigrator:master
+    restart: "no"
+    depends_on: 
+      - database
+    
+  authserver:
+    container_name: AuthServer
+    image: ghcr.io/mns-collect-verything/authserver:master
+    restart: always
+    ports:
+      - '7600:7600'
+    depends_on:
+      db :
+        condition: service_healthy
+      migrator:
+        condition: service_completed_successfully
