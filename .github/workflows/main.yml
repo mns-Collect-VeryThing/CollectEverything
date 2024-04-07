@@ -37,9 +37,9 @@ jobs:
         docker tag gateway:dev $IMAGE_ID:$VERSION
         docker push $IMAGE_ID:$VERSION
         
-    - name: Build the authserver Docker image
+    - name: Build the AuthServer Docker image
       run: docker build . --file apps/CollectEverything.AuthServer/Dockerfile --tag authserver:dev
-    - name: Push the authserver Docker image
+    - name: Push the AuthServer Docker image
       run: |
         IMAGE_ID=ghcr.io/${{ github.repository_owner }}/authserver
         IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
