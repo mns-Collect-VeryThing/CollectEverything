@@ -25,6 +25,14 @@ services:
     volumes:
       - ./redis-volume:/data
   
+  rabbitmq:
+    container_name: EventBus_RabbitMQ
+    image: rabbitmq:3.13.1-alpine
+    restart: always
+    volumes:
+      - ./rabbitmq_volume/data:/var/lib/rabbitmq/
+      - ./rabbitmq_volume/logs:/var/log/rabbitmq/
+  
   migrator:
     container_name: Migrator
     image: ghcr.io/mns-collect-verything/dbmigrator:master
@@ -44,12 +52,53 @@ services:
       migrator:
         condition: service_completed_successfully
 
-  rabbitmq:
-    container_name: EventBus_RabbitMQ
-    image: rabbitmq:3.13.1-alpine
+  gateway:
+    container_name: Gateway
+    image: ghcr.io/mns-collect-verything/gateway:master
     restart: always
-    volumes:
-      - ./rabbitmq_volume/data:/var/lib/rabbitmq/
-      - ./rabbitmq_volume/logs:/var/log/rabbitmq/
+    ports:
+      - '7500:7500'
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
   
+  administrationservice:
+    container_name: Administration-service
+    image: ghcr.io/mns-collect-verything/administration:master
+    restart: always
+    ports:
+      - '7001:7001'
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
+        
+  identityservice:
+    container_name: Identity-service
+    image: ghcr.io/mns-collect-verything/identityservice:master
+    restart: always
+    ports:
+      - '7002:7002'
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
+        
+  saasservice:
+    container_name: Saas-service
+    image: ghcr.io/mns-collect-verything/saas:master
+    restart: always
+    ports:
+      - '7003:7003'
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
+        
+  frontblazor:
+    container_name: FrontBlazor
+    image: ghcr.io/mns-collect-verything/frontblazor:master
+    restart: always
+    ports:
+      - '5000:5000'
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
   
