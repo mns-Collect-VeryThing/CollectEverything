@@ -3,13 +3,13 @@
     "CollectEverything.DbMigratorDEV": {
       "commandName": "Project",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "DOTNET_ENVIRONMENT": "Development"
       }
     },
     "CollectEverything.DbMigratorPROD": {
       "commandName": "Project",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Production"
+        "DOTNET_ENVIRONMENT": "Production"
       }
     },
     "Docker": {
