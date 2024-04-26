@@ -45,7 +45,7 @@ services:
     image: ghcr.io/mns-collect-verything/authserver:master
     restart: always
     ports:
-      - '7600:7600'
+      - '7600:8080'
     depends_on:
       database :
         condition: service_started
