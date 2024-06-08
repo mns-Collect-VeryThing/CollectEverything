@@ -1,4 +1,4 @@
-name: collecteverything
+name: collecteverything-dev
 services:
   database:
     container_name: Postgre
@@ -14,7 +14,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - PGDATA=/data/postgres
-    
+
   redis:
     container_name: Redis
     image: redis:7.2-alpine
@@ -24,7 +24,7 @@ services:
     command: redis-server --save 20 1 --loglevel warning
     volumes:
       - ./redis-volume:/data
-  
+
   rabbitmq:
     container_name: EventBus_RabbitMQ
     image: rabbitmq:3.13.1-alpine
@@ -33,34 +33,43 @@ services:
       - ./rabbitmq_volume/data:/var/lib/rabbitmq/
       - ./rabbitmq_volume/logs:/var/log/rabbitmq/
   
-#  migrator:
-#    container_name: Migrator
-#    image: ghcr.io/mns-collect-verything/dbmigrator:master
-#    restart: on-failure
-#    depends_on: 
-#      - database
-#    
-#  authserver:
-#    container_name: AuthServer
-#    image: ghcr.io/mns-collect-verything/authserver:master
-#    restart: always
-#    ports:
-#      - '7600:8080'
-#    depends_on:
-#      database :
-#        condition: service_started
-#      migrator:
-#        condition: service_completed_successfully
-#
-#  gateway:
-#    container_name: Gateway
-#    image: ghcr.io/mns-collect-verything/gateway:master
-#    restart: always
-#    ports:
-#      - '7500:8080'
-#    depends_on:
-#      migrator:
-#        condition: service_completed_successfully
+  migrator:
+    container_name: Migrator
+    image: dbmigrator:dev
+    build:
+      dockerfile: shared/CollectEverything.DbMigrator/Dockerfile
+      context: ../
+    restart: on-failure
+    depends_on: 
+      - database
+
+  authserver:
+    container_name: AuthServer
+    image: authserver:dev
+    build:
+      dockerfile: apps/CollectEverything.AuthServer/Dockerfile
+      context: ../
+    restart: always
+    ports:
+      - '7600:8080'
+    depends_on:
+      database :
+        condition: service_started
+      migrator:
+        condition: service_completed_successfully
+
+  gateway:
+    container_name: Gateway
+    image: gateway:dev
+    build:
+      dockerfile : gateway/CollectEverything.Gateway/Dockerfile
+      context: ../
+    restart: always
+    ports:
+      - '7500:8080'
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
 #  
 #  administrationservice:
 #    container_name: Administration-service
@@ -72,15 +81,18 @@ services:
 #      migrator:
 #        condition: service_completed_successfully
 #        
-#  identityservice:
-#    container_name: Identity-service
-#    image: ghcr.io/mns-collect-verything/identityservice:master
-#    restart: always
-#    ports:
-#      - '7002:8080'
-#    depends_on:
-#      migrator:
-#        condition: service_completed_successfully
+  identityservice:
+    container_name: Identity-service
+    image: identity-service:dev
+    build:
+      dockerfile: services/identity/host/CollectEverything.IdentityService.HttpApi.Host/Dockerfile
+      context: ../
+    restart: always
+    ports:
+      - '7002:8080'
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
 #        
 #  saasservice:
 #    container_name: Saas-service
