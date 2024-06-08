@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["apps/CollectEverything.Blazor.Server/CollectEverything.Blazor.Server.csproj", "apps/CollectEverything.Blazor.Server/"]
-RUN dotnet restore "apps/CollectEverything.Blazor.Server/CollectEverything.Blazor.Server.csproj"
+COPY ["apps/CollectEverything.BlazorServer/CollectEverything.BlazorServer.csproj", "apps/CollectEverything.BlazorServer/"]
+RUN dotnet restore "apps/CollectEverything.BlazorServer/CollectEverything.BlazorServer.csproj"
 COPY . .
-WORKDIR "/src/apps/CollectEverything.Blazor.Server"
-RUN dotnet build "CollectEverything.Blazor.Server.csproj" -c Release -o /app/build
+WORKDIR "/src/apps/CollectEverything.BlazorServer"
+RUN dotnet build "CollectEverything.BlazorServer.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "CollectEverything.Blazor.Server.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "CollectEverything.BlazorServer.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "CollectEverything.Blazor.Server.dll"]
+ENTRYPOINT ["dotnet", "CollectEverything.BlazorServer.dll"]
