@@ -37,8 +37,8 @@ services:
     container_name: Migrator
     image: dbmigrator:dev
     build:
-      dockerfile: shared/CollectEverything.DbMigrator/Dockerfile
       context: ../
+      dockerfile: shared/CollectEverything.DbMigrator/Dockerfile
     restart: on-failure
     depends_on: 
       - database
@@ -47,8 +47,8 @@ services:
     container_name: AuthServer
     image: authserver:dev
     build:
-      dockerfile: apps/CollectEverything.AuthServer/Dockerfile
       context: ../
+      dockerfile: apps/CollectEverything.AuthServer/Dockerfile
     restart: always
     ports:
       - '7600:8080'
@@ -62,55 +62,63 @@ services:
     container_name: Gateway
     image: gateway:dev
     build:
-      dockerfile : gateway/CollectEverything.Gateway/Dockerfile
       context: ../
+      dockerfile : gateway/CollectEverything.Gateway/Dockerfile
     restart: always
     ports:
       - '7500:8080'
     depends_on:
       migrator:
         condition: service_completed_successfully
-#  
-#  administrationservice:
-#    container_name: Administration-service
-#    image: ghcr.io/mns-collect-verything/administration:master
-#    restart: always
-#    ports:
-#      - '7001:8080'
-#    depends_on:
-#      migrator:
-#        condition: service_completed_successfully
-#        
+
+  administrationservice:
+    container_name: Administration-service
+    image: administration-service:dev
+    build:
+      context: ../
+      dockerfile: services/administration/host/CollectEverything.Administration.HttpApi.Host/Dockerfile 
+    restart: always
+    ports:
+      - '7001:8080'
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
+
   identityservice:
     container_name: Identity-service
     image: identity-service:dev
     build:
-      dockerfile: services/identity/host/CollectEverything.IdentityService.HttpApi.Host/Dockerfile
       context: ../
+      dockerfile: services/identity/host/CollectEverything.IdentityService.HttpApi.Host/Dockerfile
     restart: always
     ports:
       - '7002:8080'
     depends_on:
       migrator:
         condition: service_completed_successfully
-#        
-#  saasservice:
-#    container_name: Saas-service
-#    image: ghcr.io/mns-collect-verything/saas:master
-#    restart: always
-#    ports:
-#      - '7003:8080'
-#    depends_on:
-#      migrator:
-#        condition: service_completed_successfully
-#        
-#  frontblazor:
-#    container_name: FrontBlazor
-#    image: ghcr.io/mns-collect-verything/frontblazor:master
-#    restart: always
-#    ports:
-#      - '5000:8080'
-#    depends_on:
-#      migrator:
-#        condition: service_completed_successfully
-#  
+
+  saasservice:
+    container_name: Saas-service
+    image: saas-service:dev
+    build:
+      context: ../
+      dockerfile: services/saas/host/CollectEverything.SaaS.HttpApi.Host/Dockerfile
+    restart: always
+    ports:
+      - '7003:8080'
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
+
+  frontblazor:
+    container_name: FrontBlazor
+    image: frontblazor:dev
+    build:
+      context: ../
+      dockerfile: apps/CollectEverything.Blazor/Dockerfile
+    restart: always
+    ports:
+      - '5000:8080'
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
