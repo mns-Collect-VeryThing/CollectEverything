@@ -8,6 +8,7 @@ There is also a [YouTube Video](https://www.youtube.com/watch?v=PFFNHQUn74A) for
 - .NET 6 : https://dotnet.microsoft.com/en-us/download/dotnet/6.0
 - Tye : ``dotnet tool install -g Microsoft.Tye --version "0.11.0-alpha.22111.1"``
 - Docker : https://www.docker.com/products/docker-desktop/
+- ABP CLI
 
 ## Comment lancer le projet
 
@@ -18,11 +19,18 @@ There is also a [YouTube Video](https://www.youtube.com/watch?v=PFFNHQUn74A) for
 par ``dotnet run`` 
 5) ``tye run`` à la racine du projet pour lancer l'intégralité des micro-services
 
+### Alternative
+
+1) Se placer dans le dossier ./docker
+2) ``abp install-libs`` pour installer les dépendances NPM
+3) ``docker compose -f .\docker-compose-dev.yaml up -d --build`` pour lancer tous les services en dev
+
 ## Comment développer sur le projet
 
 Si travail sur un micro-service en particulier, il est possible de le sortir du process Tye.
 Pour le faire, commenter ses lignes de configuration dans le fichier ``tye.yaml`` et le lancer par l'IDE de 
 manière classique.
+
 
 ## Comment utiliser le project
 
