@@ -1,0 +1,104 @@
+name: collecteverything
+services:
+  database:
+    container_name: Postgre
+    image: postgres:16.2-alpine
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-volume:/data/postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATA=/data/postgres
+    
+  redis:
+    container_name: Redis
+    image: redis:7.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning
+    volumes:
+      - ./redis-volume:/data
+  
+  rabbitmq:
+    container_name: EventBus_RabbitMQ
+    image: rabbitmq:3.13.1-alpine
+    restart: always
+    volumes:
+      - ./rabbitmq_volume/data:/var/lib/rabbitmq/
+      - ./rabbitmq_volume/logs:/var/log/rabbitmq/
+  
+#  migrator:
+#    container_name: Migrator
+#    image: ghcr.io/mns-collect-verything/dbmigrator:master
+#    restart: on-failure
+#    depends_on: 
+#      - database
+#    
+#  authserver:
+#    container_name: AuthServer
+#    image: ghcr.io/mns-collect-verything/authserver:master
+#    restart: always
+#    ports:
+#      - '7600:8080'
+#    depends_on:
+#      database :
+#        condition: service_started
+#      migrator:
+#        condition: service_completed_successfully
+#
+#  gateway:
+#    container_name: Gateway
+#    image: ghcr.io/mns-collect-verything/gateway:master
+#    restart: always
+#    ports:
+#      - '7500:8080'
+#    depends_on:
+#      migrator:
+#        condition: service_completed_successfully
+#  
+#  administrationservice:
+#    container_name: Administration-service
+#    image: ghcr.io/mns-collect-verything/administration:master
+#    restart: always
+#    ports:
+#      - '7001:8080'
+#    depends_on:
+#      migrator:
+#        condition: service_completed_successfully
+#        
+#  identityservice:
+#    container_name: Identity-service
+#    image: ghcr.io/mns-collect-verything/identityservice:master
+#    restart: always
+#    ports:
+#      - '7002:8080'
+#    depends_on:
+#      migrator:
+#        condition: service_completed_successfully
+#        
+#  saasservice:
+#    container_name: Saas-service
+#    image: ghcr.io/mns-collect-verything/saas:master
+#    restart: always
+#    ports:
+#      - '7003:8080'
+#    depends_on:
+#      migrator:
+#        condition: service_completed_successfully
+#        
+#  frontblazor:
+#    container_name: FrontBlazor
+#    image: ghcr.io/mns-collect-verything/frontblazor:master
+#    restart: always
+#    ports:
+#      - '5000:8080'
+#    depends_on:
+#      migrator:
+#        condition: service_completed_successfully
+#  
