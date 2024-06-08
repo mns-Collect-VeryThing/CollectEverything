@@ -115,7 +115,7 @@ services:
     image: frontblazor:dev
     build:
       context: ../
-      dockerfile: apps/CollectEverything.Blazor/Dockerfile
+      dockerfile: apps/CollectEverything.BlazorServer/Dockerfile
     restart: always
     ports:
       - '5000:8080'

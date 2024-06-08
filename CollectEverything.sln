@@ -101,6 +101,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectEverything.AuthServe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectEverything.Blazor", "apps\CollectEverything.Blazor\CollectEverything.Blazor.csproj", "{56A6B29B-646F-4104-B389-0709DE9FC041}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.BlazorServer", "apps\CollectEverything.BlazorServer\CollectEverything.BlazorServer.csproj", "{827FD2E2-C606-49E9-BC60-6988ADA53240}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -259,6 +261,10 @@ Global
 		{56A6B29B-646F-4104-B389-0709DE9FC041}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56A6B29B-646F-4104-B389-0709DE9FC041}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56A6B29B-646F-4104-B389-0709DE9FC041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{827FD2E2-C606-49E9-BC60-6988ADA53240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{827FD2E2-C606-49E9-BC60-6988ADA53240}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{827FD2E2-C606-49E9-BC60-6988ADA53240}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{827FD2E2-C606-49E9-BC60-6988ADA53240}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -306,6 +312,7 @@ Global
 		{05D77D8B-31E7-49BA-B683-2FF54F9B1BB6} = {0F209705-7D2E-4697-8C1D-37D5AAE94CBB}
 		{5AC9119B-D456-45F6-80FA-D48B51BAEAED} = {79065DE8-D7FB-40A5-980B-A0841A208B38}
 		{56A6B29B-646F-4104-B389-0709DE9FC041} = {79065DE8-D7FB-40A5-980B-A0841A208B38}
+		{827FD2E2-C606-49E9-BC60-6988ADA53240} = {79065DE8-D7FB-40A5-980B-A0841A208B38}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECFA44F4-824C-4405-82F5-F62F2DCBCD5E}
