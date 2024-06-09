@@ -40,6 +40,9 @@ services:
       context: ../
       dockerfile: shared/CollectEverything.DbMigrator/Dockerfile
     restart: on-failure
+#    environment:
+#      - ASPNETCORE_ENVIRONMENT=development
+#      - DOTNET_ENVIRONMENT=development
     depends_on: 
       - database
 
@@ -52,6 +55,9 @@ services:
     restart: always
     ports:
       - '7600:8080'
+#    environment:
+#      - ASPNETCORE_ENVIRONMENT=development
+#      - DOTNET_ENVIRONMENT=development
     depends_on:
       database :
         condition: service_started
@@ -67,6 +73,9 @@ services:
     restart: always
     ports:
       - '7500:8080'
+#    environment:
+#      - ASPNETCORE_ENVIRONMENT=development
+#      - DOTNET_ENVIRONMENT=development
     depends_on:
       migrator:
         condition: service_completed_successfully
@@ -80,6 +89,9 @@ services:
     restart: always
     ports:
       - '7001:8080'
+#    environment:
+#      - ASPNETCORE_ENVIRONMENT=development
+#      - DOTNET_ENVIRONMENT=development
     depends_on:
       migrator:
         condition: service_completed_successfully
@@ -93,6 +105,9 @@ services:
     restart: always
     ports:
       - '7002:8080'
+#    environment:
+#      - ASPNETCORE_ENVIRONMENT=development
+#      - DOTNET_ENVIRONMENT=development
     depends_on:
       migrator:
         condition: service_completed_successfully
@@ -106,6 +121,9 @@ services:
     restart: always
     ports:
       - '7003:8080'
+#    environment:
+#      - ASPNETCORE_ENVIRONMENT=development:
+#      - DOTNET_ENVIRONMENT=development
     depends_on:
       migrator:
         condition: service_completed_successfully
@@ -118,7 +136,15 @@ services:
       dockerfile: apps/CollectEverything.BlazorServer/Dockerfile
     restart: always
     ports:
-      - '5000:8080'
+      - '5000:5000'
+      - '5001:5001'
+    environment:
+#      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://pierremih.freeboxos.fr:5000;http://pierremih.freeboxos.fr:5001
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=123
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    volumes:
+      - ~/.aspnet/https:/https:ro
     depends_on:
       migrator:
         condition: service_completed_successfully
