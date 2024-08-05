@@ -12,18 +12,19 @@ There is also a [YouTube Video](https://www.youtube.com/watch?v=PFFNHQUn74A) for
 
 ## Comment lancer le projet
 
-1) Lancer Docker
-2) Ouvrir un shell/powershell dans le dossier ``./docker``
-3) ``docker-compose up -d`` pour lancer les services de base de données (Postgres) et de cache (Redis)
-4) Lancer le projet ``shared.CollectEverything.DbMigrator``, par IDE (plante sur Rider la première fois) ou 
-par ``dotnet run`` 
-5) ``tye run`` à la racine du projet pour lancer l'intégralité des micro-services
+1) ~~Lancer Docker~~
+2) ~~Ouvrir un shell/powershell dans le dossier ``./docker``~~
+3) ~~``docker-compose up -d`` pour lancer les services de base de données (Postgres) et de cache (Redis)~~
+4) ~~Lancer le projet ``shared.CollectEverything.DbMigrator``, par IDE (plante sur Rider la première fois) ou 
+par ``dotnet run``~~ 
+5) ~~``tye run`` à la racine du projet pour lancer l'intégralité des micro-services~~
 
 ### Alternative
 
-1) Se placer dans le dossier ./docker
+1) Se placer à la racine du projet
 2) ``abp install-libs`` pour installer les dépendances NPM
-3) ``docker compose -f .\docker-compose-dev.yaml up -d --build`` pour lancer tous les services en dev
+3) Se placer dans le dossier ./docker
+4) ``docker compose -f .\docker-compose-dev.yaml up -d --build`` pour lancer tous les services en dev
 
 ## Comment développer sur le projet
 
