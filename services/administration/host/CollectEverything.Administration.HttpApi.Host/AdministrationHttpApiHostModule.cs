@@ -15,7 +15,9 @@ using CollectEverything.Hosting.Shared;
 using CollectEverything.IdentityService;
 using CollectEverything.IdentityService.EntityFrameworkCore;
 using CollectEverything.SaaS;
+using IdentityModel;
 using Volo.Abp;
+using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 using Volo.Abp.Caching;
 using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
@@ -90,6 +92,12 @@ public class AdministrationHttpApiHostModule : AbpModule
         //             .AllowCredentials();
         //     });
         // });
+
+        Configure<AbpAntiForgeryOptions>(options =>
+        {
+            options.AutoValidate = false;
+            options.AutoValidateIgnoredHttpMethods.Add("GET");
+        });
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
