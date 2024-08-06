@@ -52,7 +52,7 @@ services:
     build:
       context: ../
       dockerfile: apps/CollectEverything.AuthServer/Dockerfile
-    restart: always
+    restart: no
     ports:
       - '7600:8080'
       - '7601:8081'
@@ -76,7 +76,7 @@ services:
     build:
       context: ../
       dockerfile : gateway/CollectEverything.Gateway/Dockerfile
-    restart: always
+    restart: no
     ports:
       - '7500:8080'
     environment:
@@ -95,7 +95,7 @@ services:
     build:
       context: ../
       dockerfile: services/administration/host/CollectEverything.Administration.HttpApi.Host/Dockerfile 
-    restart: always
+    restart: no
     ports:
       - '7001:8080'
       - '7101:8081'
@@ -117,7 +117,7 @@ services:
     build:
       context: ../
       dockerfile: services/identity/host/CollectEverything.IdentityService.HttpApi.Host/Dockerfile
-    restart: always
+    restart: no
     ports:
       - '7002:8080'
     environment:
@@ -137,7 +137,7 @@ services:
     build:
       context: ../
       dockerfile: services/saas/host/CollectEverything.SaaS.HttpApi.Host/Dockerfile
-    restart: always
+    restart: no
     ports:
       - '7003:8080'
     environment:
@@ -177,7 +177,7 @@ services:
     build:
       context: ../
       dockerfile: apps/CollectEverything.BlazorServer/Dockerfile
-    restart: always
+    restart: no
     ports:
       - '5000:5000'
       - '5001:5001'
