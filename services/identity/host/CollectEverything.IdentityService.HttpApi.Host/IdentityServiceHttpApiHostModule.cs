@@ -39,24 +39,24 @@ public class IdentityServiceHttpApiHostModule : AbpModule
 
         if (hostingEnvironment.IsDevelopment())
         {
-            Configure<AbpVirtualFileSystemOptions>(options =>
-            {
-                options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceDomainSharedModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Domain.Shared",
-                            Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceDomainModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Domain", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceApplicationContractsModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Application.Contracts",
-                            Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceApplicationModule>(
-                    Path.Combine(hostingEnvironment.ContentRootPath,
-                        string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Application",
-                            Path.DirectorySeparatorChar)));
-            });
+            // Configure<AbpVirtualFileSystemOptions>(options =>
+            // {
+            //     options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceDomainSharedModule>(
+            //         Path.Combine(hostingEnvironment.ContentRootPath,
+            //             string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Domain.Shared",
+            //                 Path.DirectorySeparatorChar)));
+            //     options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceDomainModule>(
+            //         Path.Combine(hostingEnvironment.ContentRootPath,
+            //             string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Domain", Path.DirectorySeparatorChar)));
+            //     options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceApplicationContractsModule>(
+            //         Path.Combine(hostingEnvironment.ContentRootPath,
+            //             string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Application.Contracts",
+            //                 Path.DirectorySeparatorChar)));
+            //     options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceApplicationModule>(
+            //         Path.Combine(hostingEnvironment.ContentRootPath,
+            //             string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Application",
+            //                 Path.DirectorySeparatorChar)));
+            // });
         }
 
         context.Services.AddAbpSwaggerGenWithOAuth(
