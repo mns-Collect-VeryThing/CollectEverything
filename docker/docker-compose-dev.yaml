@@ -29,6 +29,8 @@ services:
     container_name: EventBus_RabbitMQ
     image: rabbitmq:3.13.1-alpine
     restart: always
+    ports:
+      - '5672:5672'
     volumes:
       - ./rabbitmq_volume/data:/var/lib/rabbitmq/
       - ./rabbitmq_volume/logs:/var/log/rabbitmq/
