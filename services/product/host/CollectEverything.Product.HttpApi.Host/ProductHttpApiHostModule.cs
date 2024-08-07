@@ -38,24 +38,13 @@ using Volo.Abp.VirtualFileSystem;
 namespace CollectEverything.Product;
 
 [DependsOn(
+    typeof(CollectEverythingHostingModule),
     typeof(ProductApplicationModule),
     typeof(ProductEntityFrameworkCoreModule),
-    typeof(ProductHttpApiModule),
-    typeof(CollectEverythingHostingModule),
-    typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
-    typeof(AbpAutofacModule),
-    typeof(AbpCachingStackExchangeRedisModule),
-    typeof(AbpEntityFrameworkCoreSqlServerModule),
-    typeof(AbpAuditLoggingEntityFrameworkCoreModule),
-    typeof(AbpPermissionManagementEntityFrameworkCoreModule),
-    typeof(AbpSettingManagementEntityFrameworkCoreModule),
-    typeof(AbpTenantManagementEntityFrameworkCoreModule),
-    typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpSwashbuckleModule)
+    typeof(ProductHttpApiModule)
     )]
 public class ProductHttpApiHostModule : AbpModule
 {
-
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         var hostingEnvironment = context.Services.GetHostingEnvironment();
@@ -172,7 +161,7 @@ public class ProductHttpApiHostModule : AbpModule
         app.UseCorrelationId();
         app.UseStaticFiles();
         app.UseRouting();
-        app.UseCors();
+        // app.UseCors();
         app.UseAuthentication();
         if (MultiTenancyConsts.IsEnabled)
         {

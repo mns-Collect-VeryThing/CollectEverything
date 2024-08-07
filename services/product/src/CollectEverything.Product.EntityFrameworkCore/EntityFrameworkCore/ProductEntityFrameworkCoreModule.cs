@@ -17,6 +17,7 @@ public class ProductEntityFrameworkCoreModule : AbpModule
                 /* Add custom repositories here. Example:
                  * options.AddRepository<Question, EfCoreQuestionRepository>();
                  */
+                options.AddDefaultRepositories(true);
         });
     }
 }
