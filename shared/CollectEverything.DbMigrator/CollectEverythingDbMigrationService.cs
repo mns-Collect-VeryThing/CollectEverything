@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using CollectEverything.Administration.EntityFrameworkCore;
 using CollectEverything.IdentityService.EntityFrameworkCore;
+using CollectEverything.Product.EntityFrameworkCore;
 using CollectEverything.SaaS.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
@@ -96,6 +97,7 @@ public class CollectEverythingDbMigrationService : ITransientDependency
 
             await MigrateDatabaseAsync<AdministrationDbContext>(cancellationToken);
             await MigrateDatabaseAsync<IdentityServiceDbContext>(cancellationToken);
+            await MigrateDatabaseAsync<ProductDbContext>(cancellationToken);
 
             await uow.CompleteAsync(cancellationToken);
         }

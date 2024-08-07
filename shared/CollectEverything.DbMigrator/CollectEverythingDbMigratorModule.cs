@@ -3,6 +3,8 @@ using CollectEverything.Administration.EntityFrameworkCore;
 using CollectEverything.IdentityService;
 using CollectEverything.IdentityService.EntityFrameworkCore;
 using CollectEverything.Microservice.Shared;
+using CollectEverything.Product;
+using CollectEverything.Product.EntityFrameworkCore;
 using CollectEverything.SaaS;
 using CollectEverything.SaaS.EntityFrameworkCore;
 using Volo.Abp.Autofac;
@@ -17,7 +19,9 @@ namespace CollectEverything.DbMigrator;
     typeof(IdentityServiceEntityFrameworkCoreModule),
     typeof(IdentityServiceApplicationContractsModule),
     typeof(SaaSEntityFrameworkCoreModule),
-    typeof(SaaSApplicationContractsModule)
+    typeof(SaaSApplicationContractsModule),
+    typeof(ProductEntityFrameworkCoreModule),
+    typeof(ProductApplicationContractsModule)
 )]
 public class CollectEverythingDbMigratorModule : AbpModule
 {

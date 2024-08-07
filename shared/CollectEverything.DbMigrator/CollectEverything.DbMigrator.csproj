@@ -10,6 +10,9 @@
 
     <ItemGroup>
         <None Remove="appsettings.json" />
+        <Content Include="..\..\.dockerignore">
+          <Link>.dockerignore</Link>
+        </Content>
         <Content Include="appsettings.json">
             <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -50,6 +53,8 @@
         <ProjectReference Include="..\..\services\administration\src\CollectEverything.Administration.EntityFrameworkCore\CollectEverything.Administration.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\..\services\identity\src\CollectEverything.IdentityService.Application.Contracts\CollectEverything.IdentityService.Application.Contracts.csproj" />
         <ProjectReference Include="..\..\services\identity\src\CollectEverything.IdentityService.EntityFrameworkCore\CollectEverything.IdentityService.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\..\services\product\src\CollectEverything.Product.Application.Contracts\CollectEverything.Product.Application.Contracts.csproj" />
+        <ProjectReference Include="..\..\services\product\src\CollectEverything.Product.EntityFrameworkCore\CollectEverything.Product.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\..\services\saas\src\CollectEverything.SaaS.Application.Contracts\CollectEverything.SaaS.Application.Contracts.csproj" />
         <ProjectReference Include="..\..\services\saas\src\CollectEverything.SaaS.EntityFrameworkCore\CollectEverything.SaaS.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\CollectEverything.Microservice.Shared\CollectEverything.Microservice.Shared.csproj" />

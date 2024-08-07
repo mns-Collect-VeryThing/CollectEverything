@@ -1,4 +1,4 @@
-#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+﻿#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
@@ -23,6 +23,10 @@ COPY ["services/saas/src/CollectEverything.SaaS.EntityFrameworkCore/CollectEvery
 COPY ["services/saas/src/CollectEverything.SaaS.Domain/CollectEverything.SaaS.Domain.csproj", "services/saas/src/CollectEverything.SaaS.Domain/"]
 COPY ["shared/CollectEverything.Microservice.Shared/CollectEverything.Microservice.Shared.csproj", "shared/CollectEverything.Microservice.Shared/"]
 COPY ["shared/CollectEverything.Hosting.Shared/CollectEverything.Hosting.Shared.csproj", "shared/CollectEverything.Hosting.Shared/"]
+COPY ["services/product/src/CollectEverything.Product.EntityFrameworkCore/CollectEverything.Product.EntityFrameworkCore.csproj", "services/product/src/CollectEverything.Product.EntityFrameworkCore/"]
+COPY ["services/product/src/CollectEverything.Product.Domain/CollectEverything.Product.Domain.csproj", "services/product/src/CollectEverything.Product.Domain/"]
+COPY ["services/product/src/CollectEverything.Product.Domain.Shared/CollectEverything.Product.Domain.Shared.csproj", "services/product/src/CollectEverything.Product.Domain.Shared/"]
+COPY ["services/product/src/CollectEverything.Product.Application.Contracts/CollectEverything.Product.Application.Contracts.csproj", "services/product/src/CollectEverything.Product.Application.Contracts/"]
 RUN dotnet restore "shared/CollectEverything.DbMigrator/CollectEverything.DbMigrator.csproj"
 COPY . .
 WORKDIR "/src/shared/CollectEverything.DbMigrator"
