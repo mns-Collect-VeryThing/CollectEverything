@@ -55,18 +55,19 @@ la gateway redirige aussi ma requête correctement.
 
 ### En dev
 
-| Service          | Port   | Username     | Password     |
-|------------------|--------|--------------|--------------|
-| Tye Dashboard    | 8000   |              |              |
-| Authentification | 7600   | admin        | 1q2w3E*      |
-| Postgre          | 5432   | postgres     | postgres     |
-| Redis            | 6379   |              |              |
-| Gateway          | 7500   |              |              |
-| Administration   | 7001   |              |              |
-| Identity         | 7002   |              |              |
-| Saas             | 7003   |              |              |
-| Front Blazor     | 5000   |              |              |
-| Front Angular    | 4200   |              |              |
-|                  | 44307  |              |              |
-|                  | 44346  |              |              |
+| Service           | Port        | Username     | Password     |
+|-------------------|-------------|--------------|--------------|
+| Tye Dashboard     | 8000        |              |              |
+| Authentification  | 7600 + 7601 | admin        | 1q2w3E*      |
+| Postgre           | 5432        | postgres     | postgres     |
+| Redis             | 6379        |              |              |
+| Gateway           | 7500 + 7501 |              |              |
+| Administration    | 7001 + 7101 |              |              |
+| Identity          | 7002 + 7102 |              |              |
+| Saas              | 7003 + 7103 |              |              |
+| Product           | 7004 + 7104 |              |              |
+| Front Blazor      | 5000 + 5001 |              |              |
+| Front Angular     | 4200        |              |              |
+|                   | 44307       |              |              |
+|                   | 44346       |              |              |
 
