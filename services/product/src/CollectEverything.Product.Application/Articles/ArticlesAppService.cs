@@ -32,14 +32,17 @@ namespace CollectEverything.Product.Articles
             return ObjectMapper.Map<Article, ArticleDto>(article);
         }
 
-        public Task<ArticleDto> CreateArticle(CreateArticleDto createArticleDto)
+        public async Task<ArticleDto> CreateArticle(CreateArticleDto createArticleDto)
         {
             var article = new Article(_guidGenerator.Create(), createArticleDto.Nom, createArticleDto.Prix);
+            article = await _articleRepository.InsertAsync(article);
+            return ObjectMapper.Map<Article, ArticleDto>(article);
         }
 
-        public Task DeleteArticle(Guid idArticle)
+        public async Task DeleteArticle(Guid idArticle)
         {
-            throw new NotImplementedException();
+            var article = await _articleRepository.GetAsync(idArticle);
+            await _articleRepository.DeleteAsync(article);
         }
     }
 }
