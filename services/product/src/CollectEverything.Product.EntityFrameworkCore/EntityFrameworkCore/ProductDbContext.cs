@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CollectEverything.Product.Articles;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -7,9 +8,7 @@ namespace CollectEverything.Product.EntityFrameworkCore;
 [ConnectionStringName(ProductDbProperties.ConnectionStringName)]
 public class ProductDbContext : AbpDbContext<ProductDbContext>, IProductDbContext
 {
-    /* Add DbSet for each Aggregate Root here. Example:
-     * public DbSet<Question> Questions { get; set; }
-     */
+    public DbSet<Article> Articles { get; set; }
 
     public ProductDbContext(DbContextOptions<ProductDbContext> options)
         : base(options)
@@ -22,5 +21,13 @@ public class ProductDbContext : AbpDbContext<ProductDbContext>, IProductDbContex
         base.OnModelCreating(builder);
 
         builder.ConfigureProduct();
+
+        if (builder.IsHostDatabase())
+        {
+            builder.Entity<Article>(article =>
+            {
+                article.ToTable(ProductDbProperties.DbTablePrefix + "Article", ProductDbProperties.DbSchema);
+            });
+        }
     }
 }

@@ -14,6 +14,7 @@ using CollectEverything.Administration.EntityFrameworkCore;
 using CollectEverything.Hosting.Shared;
 using CollectEverything.IdentityService;
 using CollectEverything.IdentityService.EntityFrameworkCore;
+using CollectEverything.Product;
 using CollectEverything.SaaS;
 using IdentityModel;
 using Volo.Abp;
@@ -32,7 +33,8 @@ namespace CollectEverything.Administration;
     typeof(IdentityServiceApplicationContractsModule),
     typeof(IdentityServiceEntityFrameworkCoreModule),
     typeof(AbpIdentityDomainModule),
-    typeof(SaaSApplicationContractsModule)
+    typeof(SaaSApplicationContractsModule),
+    typeof(ProductApplicationContractsModule)
 )]
 public class AdministrationHttpApiHostModule : AbpModule
 {

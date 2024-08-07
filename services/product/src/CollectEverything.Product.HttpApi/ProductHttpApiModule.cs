@@ -8,18 +8,10 @@ using Microsoft.Extensions.DependencyInjection;
 namespace CollectEverything.Product;
 
 [DependsOn(
-    typeof(ProductApplicationContractsModule),
-    typeof(AbpAspNetCoreMvcModule))]
+    typeof(ProductApplicationContractsModule)
+    )]
 public class ProductHttpApiModule : AbpModule
 {
-    public override void PreConfigureServices(ServiceConfigurationContext context)
-    {
-        PreConfigure<IMvcBuilder>(mvcBuilder =>
-        {
-            mvcBuilder.AddApplicationPartIfNotExists(typeof(ProductHttpApiModule).Assembly);
-        });
-    }
-
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         Configure<AbpLocalizationOptions>(options =>
