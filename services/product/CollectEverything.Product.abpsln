@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "CollectEverything.Product": {
+      "path": "CollectEverything.Product.abpmdl"
+    }
+  }
+}
