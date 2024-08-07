@@ -1,4 +1,7 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
+using CollectEverything.Product.Articles;
+using CollectEverything.Product.Articles.DTOs.Output;
 
 namespace CollectEverything.Product;
 
@@ -6,8 +9,7 @@ public class ProductApplicationAutoMapperProfile : Profile
 {
     public ProductApplicationAutoMapperProfile()
     {
-        /* You can configure your AutoMapper mapping configuration here.
-         * Alternatively, you can split your mapping configurations
-         * into multiple profile classes for a better organization. */
+        CreateMap<Article, ArticleDto>()
+            .ForMember(dto => dto.Boutique, m => m.MapFrom(o => Guid.Empty));
     }
 }

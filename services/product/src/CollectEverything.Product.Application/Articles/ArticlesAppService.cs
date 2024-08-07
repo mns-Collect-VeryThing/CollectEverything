@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper.Internal.Mappers;
 using CollectEverything.Product.Articles.DTOs.Input;
@@ -23,7 +24,7 @@ namespace CollectEverything.Product.Articles
         public async Task<List<ArticleDto>> GetListArticles()
         {
             var articles = await _articleRepository.GetListAsync();
-            return ObjectMapper.Map<List<Article>, List<ArticleDto>>(articles);
+            return articles.Select(a => ObjectMapper.Map<Article, ArticleDto>(a)).ToList();
         }
 
         public async Task<ArticleDto> GetArticle(Guid idArticle)

@@ -10,7 +10,12 @@ namespace CollectEverything.Microservice.Shared;
 )]
 public class CollectEverythingMicroserviceModule : AbpModule
 {
+    public override void PreConfigureServices(ServiceConfigurationContext context)
+    {
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+    }
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
+        
     }
 }
