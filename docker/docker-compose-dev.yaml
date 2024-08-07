@@ -39,7 +39,7 @@ services:
     build:
       context: ../
       dockerfile: shared/CollectEverything.DbMigrator/Dockerfile
-    restart: on-failure
+    restart: no
 #    environment:
 #      - ASPNETCORE_ENVIRONMENT=development
 #      - DOTNET_ENVIRONMENT=development
@@ -59,7 +59,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=development
       - DOTNET_ENVIRONMENT=development
-      - ASPNETCORE_HTTPS_PORTS=8081
+      - ASPNETCORE_HTTPS_PORTS=8080
+      - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.AuthServer.pfx
     volumes:
@@ -82,7 +83,8 @@ services:
       - '7501:8081'
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTPS_PORTS=8081
+      - ASPNETCORE_HTTPS_PORTS=8080
+      - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.Gateway.pfx
     volumes:
@@ -103,7 +105,8 @@ services:
       - '7101:8081'
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTPS_PORTS=8081
+      - ASPNETCORE_HTTPS_PORTS=8080
+      - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.Administration.HttpApi.Host.pfx
     volumes:
@@ -125,6 +128,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=development
       - DOTNET_ENVIRONMENT=development
+      - ASPNETCORE_HTTPS_PORTS=8080
+      - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
     volumes:
@@ -145,6 +150,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=development
       - DOTNET_ENVIRONMENT=development
+      - ASPNETCORE_HTTPS_PORTS=8080
+      - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
     volumes:
