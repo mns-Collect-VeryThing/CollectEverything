@@ -81,17 +81,6 @@ public class ProductHttpApiHostModule : AbpModule
             options.IsEnabled = MultiTenancyConsts.IsEnabled;
         });
 
-        // if (hostingEnvironment.IsDevelopment())
-        // {
-        //     Configure<AbpVirtualFileSystemOptions>(options =>
-        //     {
-        //         options.FileSets.ReplaceEmbeddedByPhysical<ProductDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}CollectEverything.Product.Domain.Shared", Path.DirectorySeparatorChar)));
-        //         options.FileSets.ReplaceEmbeddedByPhysical<ProductDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}CollectEverything.Product.Domain", Path.DirectorySeparatorChar)));
-        //         options.FileSets.ReplaceEmbeddedByPhysical<ProductApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}CollectEverything.Product.Application.Contracts", Path.DirectorySeparatorChar)));
-        //         options.FileSets.ReplaceEmbeddedByPhysical<ProductApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}CollectEverything.Product.Application", Path.DirectorySeparatorChar)));
-        //     });
-        // }
-
         context.Services.AddAbpSwaggerGenWithOAuth(
             configuration["AuthServer:Authority"]!,
             new Dictionary<string, string>
@@ -148,25 +137,6 @@ public class ProductHttpApiHostModule : AbpModule
             var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]!);
             dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "Product-Protection-Keys");
         }
-
-        // context.Services.AddCors(options =>
-        // {
-        //     options.AddDefaultPolicy(builder =>
-        //     {
-        //         builder
-        //             .WithOrigins(
-        //                 configuration["App:CorsOrigins"]?
-        //                     .Split(",", StringSplitOptions.RemoveEmptyEntries)
-        //                     .Select(o => o.RemovePostFix("/"))
-        //                     .ToArray() ?? Array.Empty<string>()
-        //             )
-        //             .WithAbpExposedHeaders()
-        //             .SetIsOriginAllowedToAllowWildcardSubdomains()
-        //             .AllowAnyHeader()
-        //             .AllowAnyMethod()
-        //             .AllowCredentials();
-        //     });
-        // });
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
