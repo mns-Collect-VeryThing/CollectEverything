@@ -127,15 +127,16 @@ services:
     restart: no
     ports:
       - '7002:8080'
+      - '7102:8081'
     environment:
       - ASPNETCORE_ENVIRONMENT=development
       - DOTNET_ENVIRONMENT=development
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.IdentityService.HttpApi.Host.pfx
     volumes:
-      - ./certificates/pierremih.freeboxos.fr/:/https:ro
+      - ./certificates/CollectEverything.IdentityService.HttpApi.Host/:/https:ro
     depends_on:
       migrator:
         condition: service_completed_successfully
@@ -149,15 +150,16 @@ services:
     restart: no
     ports:
       - '7003:8080'
+      - '7103:8081'
     environment:
       - ASPNETCORE_ENVIRONMENT=development
       - DOTNET_ENVIRONMENT=development
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.SaaS.HttpApi.Host.pfx
     volumes:
-      - ./certificates/pierremih.freeboxos.fr/:/https:ro
+      - ./certificates/CollectEverything.SaaS.HttpApi.Host/:/https:ro
     depends_on:
       migrator:
         condition: service_completed_successfully
@@ -175,6 +177,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=development
       - DOTNET_ENVIRONMENT=development
+      - ASPNETCORE_HTTPS_PORTS=8080
+      - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.Product.HttpApi.Host.pfx
     volumes:
@@ -216,9 +220,9 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://pierremih.freeboxos.fr:5000/
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.BlazorServer.pfx
     volumes:
-      - ./certificates/pierremih.freeboxos.fr/:/https:ro
+      - ./certificates/CollectEverything.BlazorServer/:/https:ro
     depends_on:
       migrator:
         condition: service_completed_successfully
