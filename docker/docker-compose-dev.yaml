@@ -64,9 +64,9 @@ services:
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.AuthServer.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
     volumes:
-      - ./certificates/CollectEverything.AuthServer/:/https:ro
+      - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
       database :
         condition: service_started
@@ -88,9 +88,9 @@ services:
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.Gateway.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
     volumes:
-        - ./certificates/CollectEverything.Gateway/:/https:ro
+        - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
       migrator:
         condition: service_completed_successfully
@@ -110,10 +110,9 @@ services:
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.Administration.HttpApi.Host.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
     volumes:
-      - ./certificates/CollectEverything.Administration.HttpApi.Host/:/https:ro
-#      - ./certificates/pierremih.freeboxos.fr/:/https:ro
+      - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
       migrator:
         condition: service_completed_successfully
@@ -134,9 +133,9 @@ services:
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.IdentityService.HttpApi.Host.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
     volumes:
-      - ./certificates/CollectEverything.IdentityService.HttpApi.Host/:/https:ro
+      - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
       migrator:
         condition: service_completed_successfully
@@ -157,9 +156,9 @@ services:
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.SaaS.HttpApi.Host.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
     volumes:
-      - ./certificates/CollectEverything.SaaS.HttpApi.Host/:/https:ro
+      - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
       migrator:
         condition: service_completed_successfully
@@ -180,9 +179,9 @@ services:
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.Product.HttpApi.Host.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
     volumes:
-      - ./certificates/CollectEverything.Product.HttpApi.Host/:/https:ro
+      - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
       migrator:
         condition: service_completed_successfully
@@ -220,9 +219,9 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://pierremih.freeboxos.fr:5000/
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/CollectEverything.BlazorServer.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
     volumes:
-      - ./certificates/CollectEverything.BlazorServer/:/https:ro
+      - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
       migrator:
         condition: service_completed_successfully
