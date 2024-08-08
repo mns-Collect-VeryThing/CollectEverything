@@ -62,7 +62,7 @@ public class ProductHttpApiHostModule : AbpModule
                 .ConventionalControllers
                 .Create(typeof(ProductApplicationModule).Assembly, options =>
                 {
-                    options.RootPath = "products";
+                    // options.RootPath = "products";
                 });
         });
         
