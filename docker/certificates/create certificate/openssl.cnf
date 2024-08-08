@@ -1,0 +1,33 @@
+[req]
+default_bits        = 2048
+distinguished_name  = req_distinguished_name
+req_extensions      = req_ext
+x509_extensions     = v3_ca
+prompt              = no
+
+[req_distinguished_name]
+C                   = FR
+ST                  = Est
+L                   = Metz
+O                   = PierreMih
+OU                  = PierreMih
+CN                  = pierremih.freeboxos.fr
+
+[req_ext]
+subjectAltName      = @alt_names
+
+[v3_ca]
+subjectAltName      = @alt_names
+keyUsage            = keyCertSign, cRLSign
+basicConstraints    = critical, CA:true
+
+[alt_names]
+DNS.1 = pierremih.freeboxos.fr
+DNS.2 = localhost
+DNS.3 = gateway
+DNS.4 = productservice
+DNS.5 = authserver
+DNS.6 = administrationservice
+DNS.7 = identityservice
+DNS.8 = saasservice
+DNS.9 = frontblazor
