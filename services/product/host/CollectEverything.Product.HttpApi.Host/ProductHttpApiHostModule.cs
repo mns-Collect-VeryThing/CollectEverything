@@ -60,7 +60,10 @@ public class ProductHttpApiHostModule : AbpModule
         {
             options
                 .ConventionalControllers
-                .Create(typeof(ProductApplicationModule).Assembly);
+                .Create(typeof(ProductApplicationModule).Assembly, options =>
+                {
+                    options.RootPath = "products";
+                });
         });
         
         Configure<AbpMultiTenancyOptions>(options =>
