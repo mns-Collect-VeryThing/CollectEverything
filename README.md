@@ -6,7 +6,7 @@ There is also a [YouTube Video](https://www.youtube.com/watch?v=PFFNHQUn74A) for
 ## Prérequis :
 - .NET 8 : https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 - .NET 6 : https://dotnet.microsoft.com/en-us/download/dotnet/6.0
-- Tye : ``dotnet tool install -g Microsoft.Tye --version "0.11.0-alpha.22111.1"``
+- ~~Tye : ``dotnet tool install -g Microsoft.Tye --version "0.11.0-alpha.22111.1"``~~
 - Docker : https://www.docker.com/products/docker-desktop/
 - ABP CLI
 
