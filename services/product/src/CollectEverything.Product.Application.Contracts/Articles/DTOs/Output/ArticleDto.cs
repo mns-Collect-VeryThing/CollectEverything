@@ -8,5 +8,6 @@ namespace CollectEverything.Product.Articles.DTOs.Output
         public Guid Boutique { get; set; }
         public string Nom { get; set; }
         public double Prix { get; set; }
+        public int Quantity { get; set; }
     }
 }

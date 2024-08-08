@@ -7,16 +7,18 @@ namespace CollectEverything.Product.Articles
     {
         public string Nom { get; set; }
         public double Prix { get; set; }
+        public int Quantity { get; set; }
 
         protected Article()
         {
             
         }
 
-        public Article(Guid id, string nom, double prix) : base(id)
+        public Article(Guid id, string nom, double prix, int quantity) : base(id)
         {
             Nom = nom;
             Prix = prix;
+            Quantity = quantity;
         }
     }
 }
