@@ -56,6 +56,16 @@ public class ProductHttpApiHostModule : AbpModule
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
 
+        context.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(builder =>
+            {
+                builder.AllowAnyOrigin();
+                builder.AllowAnyHeader();
+                builder.AllowAnyMethod();
+            });
+        });
+        
         Configure<AbpAspNetCoreMvcOptions>(options =>
         {
             options
@@ -177,7 +187,7 @@ public class ProductHttpApiHostModule : AbpModule
         app.UseCorrelationId();
         app.UseStaticFiles();
         app.UseRouting();
-        // app.UseCors();
+        app.UseCors();
         app.UseAuthentication();
         if (MultiTenancyConsts.IsEnabled)
         {
