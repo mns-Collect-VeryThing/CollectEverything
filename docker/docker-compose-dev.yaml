@@ -64,7 +64,7 @@ services:
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
     volumes:
       - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
@@ -88,7 +88,7 @@ services:
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
     volumes:
         - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
@@ -110,7 +110,7 @@ services:
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
     volumes:
       - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
@@ -133,7 +133,7 @@ services:
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
     volumes:
       - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
@@ -156,7 +156,7 @@ services:
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
     volumes:
       - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
@@ -179,7 +179,7 @@ services:
       - ASPNETCORE_HTTPS_PORTS=8080
       - ASPNETCORE_HTTP_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
     volumes:
       - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
@@ -219,7 +219,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://pierremih.freeboxos.fr:5000/
       - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/pierremih.freeboxos.fr.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
     volumes:
       - ./certificates/pierremih.freeboxos.fr/:/https:ro
     depends_on:
