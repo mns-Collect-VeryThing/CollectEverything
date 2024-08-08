@@ -35,7 +35,7 @@ namespace CollectEverything.Product.Articles
 
         public async Task<ArticleDto> CreateArticle(CreateArticleDto createArticleDto)
         {
-            var article = new Article(_guidGenerator.Create(), createArticleDto.Nom, createArticleDto.Prix);
+            var article = new Article(_guidGenerator.Create(), createArticleDto.Nom, createArticleDto.Prix, createArticleDto.Quantity);
             article = await _articleRepository.InsertAsync(article);
             return ObjectMapper.Map<Article, ArticleDto>(article);
         }
