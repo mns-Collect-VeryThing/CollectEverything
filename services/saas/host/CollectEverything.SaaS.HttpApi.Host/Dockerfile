@@ -31,6 +31,6 @@ RUN dotnet publish "CollectEverything.SaaS.HttpApi.Host.csproj" -c Release -o /a
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-COPY ./docker/certificates/pierremih.freeboxos.fr/certificate.crt /usr/local/share/ca-certificates/
+COPY ./docker/certificates/actual_certificates/certificate.crt /usr/local/share/ca-certificates/
 RUN chmod 644 /usr/local/share/ca-certificates/certificate.crt && update-ca-certificates
 ENTRYPOINT ["dotnet", "CollectEverything.SaaS.HttpApi.Host.dll"]
