@@ -76,30 +76,22 @@ public class AdministrationHttpApiHostModule : AbpModule
             dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "Administration-Protection-Keys");
         }
 
-        // context.Services.AddCors(options =>
-        // {
-        //     options.AddDefaultPolicy(builder =>
-        //     {
-        //         builder
-        //             .WithOrigins(
-        //                 configuration["App:CorsOrigins"]
-        //                     .Split(",", StringSplitOptions.RemoveEmptyEntries)
-        //                     .Select(o => o.RemovePostFix("/"))
-        //                     .ToArray()
-        //             )
-        //             .WithAbpExposedHeaders()
-        //             .SetIsOriginAllowedToAllowWildcardSubdomains()
-        //             .AllowAnyHeader()
-        //             .AllowAnyMethod()
-        //             .AllowCredentials();
-        //     });
-        // });
-
-        Configure<AbpAntiForgeryOptions>(options =>
+        context.Services.AddCors(options =>
         {
-            options.AutoValidate = false;
-            options.AutoValidateIgnoredHttpMethods.Add("GET");
+            options.AddDefaultPolicy(builder =>
+            {
+                builder
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
         });
+
+        // Configure<AbpAntiForgeryOptions>(options =>
+        // {
+        //     options.AutoValidate = false;
+        //     options.AutoValidateIgnoredHttpMethods.Add("GET");
+        // });
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
