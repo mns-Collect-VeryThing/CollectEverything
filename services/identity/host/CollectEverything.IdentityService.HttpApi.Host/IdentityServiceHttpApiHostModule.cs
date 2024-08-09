@@ -37,27 +37,27 @@ public class IdentityServiceHttpApiHostModule : AbpModule
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
 
-        if (hostingEnvironment.IsDevelopment())
-        {
-            // Configure<AbpVirtualFileSystemOptions>(options =>
-            // {
-            //     options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceDomainSharedModule>(
-            //         Path.Combine(hostingEnvironment.ContentRootPath,
-            //             string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Domain.Shared",
-            //                 Path.DirectorySeparatorChar)));
-            //     options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceDomainModule>(
-            //         Path.Combine(hostingEnvironment.ContentRootPath,
-            //             string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Domain", Path.DirectorySeparatorChar)));
-            //     options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceApplicationContractsModule>(
-            //         Path.Combine(hostingEnvironment.ContentRootPath,
-            //             string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Application.Contracts",
-            //                 Path.DirectorySeparatorChar)));
-            //     options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceApplicationModule>(
-            //         Path.Combine(hostingEnvironment.ContentRootPath,
-            //             string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Application",
-            //                 Path.DirectorySeparatorChar)));
-            // });
-        }
+        // if (hostingEnvironment.IsDevelopment())
+        // {
+        //     Configure<AbpVirtualFileSystemOptions>(options =>
+        //     {
+        //         options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceDomainSharedModule>(
+        //             Path.Combine(hostingEnvironment.ContentRootPath,
+        //                 string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Domain.Shared",
+        //                     Path.DirectorySeparatorChar)));
+        //         options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceDomainModule>(
+        //             Path.Combine(hostingEnvironment.ContentRootPath,
+        //                 string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Domain", Path.DirectorySeparatorChar)));
+        //         options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceApplicationContractsModule>(
+        //             Path.Combine(hostingEnvironment.ContentRootPath,
+        //                 string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Application.Contracts",
+        //                     Path.DirectorySeparatorChar)));
+        //         options.FileSets.ReplaceEmbeddedByPhysical<IdentityServiceApplicationModule>(
+        //             Path.Combine(hostingEnvironment.ContentRootPath,
+        //                 string.Format("..{0}..{0}src{0}CollectEverything.IdentityService.Application",
+        //                     Path.DirectorySeparatorChar)));
+        //     });
+        // }
 
         context.Services.AddAbpSwaggerGenWithOAuth(
             configuration["AuthServer:Authority"],
@@ -92,24 +92,16 @@ public class IdentityServiceHttpApiHostModule : AbpModule
             dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "IdentityService-Protection-Keys");
         }
 
-        // context.Services.AddCors(options =>
-        // {
-        //     options.AddDefaultPolicy(builder =>
-        //     {
-        //         builder
-        //             .WithOrigins(
-        //                 configuration["App:CorsOrigins"]
-        //                     .Split(",", StringSplitOptions.RemoveEmptyEntries)
-        //                     .Select(o => o.RemovePostFix("/"))
-        //                     .ToArray()
-        //             )
-        //             .WithAbpExposedHeaders()
-        //             .SetIsOriginAllowedToAllowWildcardSubdomains()
-        //             .AllowAnyHeader()
-        //             .AllowAnyMethod()
-        //             .AllowCredentials();
-        //     });
-        // });
+        context.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(builder =>
+            {
+                builder
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
+        });
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
