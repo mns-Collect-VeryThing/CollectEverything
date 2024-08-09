@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "CollectEverything.Commandes": {
+      "path": "CollectEverything.Commandes.abpmdl"
+    }
+  }
+}
