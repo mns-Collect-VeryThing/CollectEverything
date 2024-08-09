@@ -13,5 +13,6 @@ namespace CollectEverything.Product.Articles
         public Task<ArticleDto> GetArticle(Guid idArticle);
         public Task<ArticleDto> CreateArticle(CreateArticleDto createArticleDto);
         public Task DeleteArticle(Guid idArticle);
+        public Task<ArticleDto> UpdateArticle(UpdateArticleDto updateArticleDto);
     }
 }

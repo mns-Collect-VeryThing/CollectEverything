@@ -45,5 +45,16 @@ namespace CollectEverything.Product.Articles
             var article = await _articleRepository.GetAsync(idArticle);
             await _articleRepository.DeleteAsync(article);
         }
+
+        public async Task<ArticleDto> UpdateArticle(UpdateArticleDto updateArticleDto)
+        {
+            var article = await _articleRepository.GetAsync(updateArticleDto.Id);
+            article.Nom = updateArticleDto.Nom;
+            article.Prix = updateArticleDto.Prix;
+            article.Quantity = updateArticleDto.Quantity;
+            article = await _articleRepository.UpdateAsync(article);
+
+            return ObjectMapper.Map<Article, ArticleDto>(article);
+        }
     }
 }
