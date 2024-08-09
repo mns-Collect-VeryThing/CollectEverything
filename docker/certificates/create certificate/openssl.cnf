@@ -31,3 +31,4 @@ DNS.6 = administrationservice
 DNS.7 = identityservice
 DNS.8 = saasservice
 DNS.9 = frontblazor
+DNS.10 = commandesservice

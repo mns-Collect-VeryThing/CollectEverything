@@ -1,5 +1,7 @@
 ﻿using CollectEverything.Administration;
 using CollectEverything.Administration.EntityFrameworkCore;
+using CollectEverything.Commandes;
+using CollectEverything.Commandes.EntityFrameworkCore;
 using CollectEverything.IdentityService;
 using CollectEverything.IdentityService.EntityFrameworkCore;
 using CollectEverything.Microservice.Shared;
@@ -21,7 +23,9 @@ namespace CollectEverything.DbMigrator;
     typeof(SaaSEntityFrameworkCoreModule),
     typeof(SaaSApplicationContractsModule),
     typeof(ProductEntityFrameworkCoreModule),
-    typeof(ProductApplicationContractsModule)
+    typeof(ProductApplicationContractsModule),
+    typeof(CommandesEntityFrameworkCoreModule),
+    typeof(CommandesApplicationContractsModule)
 )]
 public class CollectEverythingDbMigratorModule : AbpModule
 {
