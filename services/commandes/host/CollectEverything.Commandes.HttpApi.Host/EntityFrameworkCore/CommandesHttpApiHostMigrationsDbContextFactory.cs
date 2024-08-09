@@ -12,7 +12,7 @@ public class CommandesHttpApiHostMigrationsDbContextFactory : IDesignTimeDbConte
         var configuration = BuildConfiguration();
 
         var builder = new DbContextOptionsBuilder<CommandesHttpApiHostMigrationsDbContext>()
-            .UseSqlServer(configuration.GetConnectionString("Commandes"));
+            .UseNpgsql(configuration.GetConnectionString("Commandes"));
 
         return new CommandesHttpApiHostMigrationsDbContext(builder.Options);
     }

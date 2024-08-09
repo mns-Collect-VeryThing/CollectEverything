@@ -1,6 +1,4 @@
-﻿#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
@@ -21,12 +19,16 @@ COPY ["services/saas/src/CollectEverything.SaaS.Application.Contracts/CollectEve
 COPY ["services/saas/src/CollectEverything.SaaS.Domain.Shared/CollectEverything.SaaS.Domain.Shared.csproj", "services/saas/src/CollectEverything.SaaS.Domain.Shared/"]
 COPY ["services/saas/src/CollectEverything.SaaS.EntityFrameworkCore/CollectEverything.SaaS.EntityFrameworkCore.csproj", "services/saas/src/CollectEverything.SaaS.EntityFrameworkCore/"]
 COPY ["services/saas/src/CollectEverything.SaaS.Domain/CollectEverything.SaaS.Domain.csproj", "services/saas/src/CollectEverything.SaaS.Domain/"]
-COPY ["shared/CollectEverything.Microservice.Shared/CollectEverything.Microservice.Shared.csproj", "shared/CollectEverything.Microservice.Shared/"]
-COPY ["shared/CollectEverything.Hosting.Shared/CollectEverything.Hosting.Shared.csproj", "shared/CollectEverything.Hosting.Shared/"]
 COPY ["services/product/src/CollectEverything.Product.EntityFrameworkCore/CollectEverything.Product.EntityFrameworkCore.csproj", "services/product/src/CollectEverything.Product.EntityFrameworkCore/"]
 COPY ["services/product/src/CollectEverything.Product.Domain/CollectEverything.Product.Domain.csproj", "services/product/src/CollectEverything.Product.Domain/"]
 COPY ["services/product/src/CollectEverything.Product.Domain.Shared/CollectEverything.Product.Domain.Shared.csproj", "services/product/src/CollectEverything.Product.Domain.Shared/"]
 COPY ["services/product/src/CollectEverything.Product.Application.Contracts/CollectEverything.Product.Application.Contracts.csproj", "services/product/src/CollectEverything.Product.Application.Contracts/"]
+COPY ["services/commandes/src/CollectEverything.Commandes.Domain.Shared/CollectEverything.Commandes.Domain.Shared.csproj", "services/commandes/src/CollectEverything.Commandes.Domain.Shared/"]
+COPY ["services/commandes/src/CollectEverything.Commandes.Domain/CollectEverything.Commandes.Domain.csproj", "services/commandes/src/CollectEverything.Commandes.Domain/"]
+COPY ["services/commandes/src/CollectEverything.Commandes.EntityFrameworkCore/CollectEverything.Commandes.EntityFrameworkCore.csproj", "services/commandes/src/CollectEverything.Commandes.EntityFrameworkCore/"]
+COPY ["services/commandes/src/CollectEverything.Commandes.Application.Contracts/CollectEverything.Commandes.Application.Contracts.csproj", "services/commandes/src/CollectEverything.Commandes.Application.Contracts/"]
+COPY ["shared/CollectEverything.Microservice.Shared/CollectEverything.Microservice.Shared.csproj", "shared/CollectEverything.Microservice.Shared/"]
+COPY ["shared/CollectEverything.Hosting.Shared/CollectEverything.Hosting.Shared.csproj", "shared/CollectEverything.Hosting.Shared/"]
 RUN dotnet restore "shared/CollectEverything.DbMigrator/CollectEverything.DbMigrator.csproj"
 COPY . .
 WORKDIR "/src/shared/CollectEverything.DbMigrator"

@@ -26,7 +26,7 @@ namespace CollectEverything.Commandes.EntityFrameworkCore
                 .SetBasePath(
                     Path.Combine(
                         Directory.GetParent(Directory.GetCurrentDirectory())?.Parent!.FullName!,
-                        $"host{Path.DirectorySeparatorChar}CollectEverything.Product.HttpApi.Host"
+                        $"host{Path.DirectorySeparatorChar}CollectEverything.Commandes.HttpApi.Host"
                     )
                 )
                 .AddJsonFile("appsettings.json", false);

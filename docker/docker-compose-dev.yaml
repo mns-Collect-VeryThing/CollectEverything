@@ -191,7 +191,7 @@ services:
     image: commandes-service:dev
     build:
       context: ../
-      dockerfile: services/product/host/CollectEverything.Commandes.HttpApi.Host/Dockerfile
+      dockerfile: services/commandes/host/CollectEverything.Commandes.HttpApi.Host/Dockerfile
     restart: no
     ports:
       - '7005:8080'
