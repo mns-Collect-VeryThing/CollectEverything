@@ -87,11 +87,11 @@ public class AdministrationHttpApiHostModule : AbpModule
             });
         });
 
-        Configure<AbpAntiForgeryOptions>(options =>
-        {
-            options.AutoValidate = false;
-            options.AutoValidateIgnoredHttpMethods.Add("GET");
-        });
+        // Configure<AbpAntiForgeryOptions>(options =>
+        // {
+        //     options.AutoValidate = false;
+        //     options.AutoValidateIgnoredHttpMethods.Add("GET");
+        // });
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
