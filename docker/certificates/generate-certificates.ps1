@@ -1,1 +1,0 @@
-dotnet dev-certs https -ep .\pierremih.freeboxos.fr\pierremih.freeboxos.fr.pfx -p 123 --trust
