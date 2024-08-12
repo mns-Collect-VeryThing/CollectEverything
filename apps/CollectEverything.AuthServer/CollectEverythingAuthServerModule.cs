@@ -30,6 +30,8 @@ using CollectEverything.Microservice.Shared;
 using CollectEverything.SaaS.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.PostgreSql;
 using Microsoft.IdentityModel.Logging;
+using Microsoft.OpenApi.Models;
+using Volo.Abp.Swashbuckle;
 
 namespace CollectEverything;
 
@@ -46,9 +48,10 @@ namespace CollectEverything;
     typeof(SaaSEntityFrameworkCoreModule),
     typeof(IdentityServiceEntityFrameworkCoreModule),
     typeof(CollectEverythingMicroserviceModule),
-    typeof(AbpAspNetCoreSerilogModule)
+    typeof(AbpAspNetCoreSerilogModule),
+    typeof(AbpSwashbuckleModule)
     )]
-public class CollectEverythingAuthServerModule : AbpModule
+    public class CollectEverythingAuthServerModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
@@ -128,6 +131,15 @@ public class CollectEverythingAuthServerModule : AbpModule
                     .AllowAnyMethod();
             });
         });
+        
+        context.Services.AddAbpSwaggerGen(
+            options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Authserver API", Version = "v1" });
+                options.DocInclusionPredicate((docName, description) => true);
+                options.CustomSchemaIds(type => type.FullName);
+            }
+        );
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
@@ -159,6 +171,11 @@ public class CollectEverythingAuthServerModule : AbpModule
 
         app.UseUnitOfWork();
         app.UseAuthorization();
+        app.UseSwagger();
+        app.UseAbpSwaggerUI(options =>
+        {
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "CollectEverything API");
+        });
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();
         app.UseConfiguredEndpoints();
