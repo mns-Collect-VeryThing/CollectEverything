@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CollectEverything.Commandes.Paniers;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace CollectEverything.Commandes.EntityFrameworkCore;
 
@@ -23,5 +25,14 @@ public class CommandesDbContext : AbpDbContext<CommandesDbContext>, ICommandesDb
 
         builder.ConfigureCommandes();
         
+        if (builder.IsHostDatabase())
+        {
+            builder.Entity<Panier>(commande =>
+            {
+                commande.ConfigureByConvention();
+                commande.ToTable(CommandesDbProperties.DbTablePrefix + "Commande", CommandesDbProperties.DbSchema);
+                commande.OwnsMany(c => c.Articles);
+            });
+        }
     }
 }
