@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace CollectEverything.Product.EntityFrameworkCore;
 
@@ -26,6 +27,7 @@ public class ProductDbContext : AbpDbContext<ProductDbContext>, IProductDbContex
         {
             builder.Entity<Article>(article =>
             {
+                article.ConfigureByConvention();
                 article.ToTable(ProductDbProperties.DbTablePrefix + "Article", ProductDbProperties.DbSchema);
             });
         }
