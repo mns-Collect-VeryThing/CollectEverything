@@ -9,9 +9,8 @@ namespace CollectEverything.Commandes.EntityFrameworkCore;
 [ConnectionStringName(CommandesDbProperties.ConnectionStringName)]
 public class CommandesDbContext : AbpDbContext<CommandesDbContext>, ICommandesDbContext
 {
-    /* Add DbSet for each Aggregate Root here. Example:
-     * public DbSet<Question> Questions { get; set; }
-     */
+    public DbSet<Panier> Panier { get; set; }
+    public DbSet<Article> Articles { get; set; }
 
     public CommandesDbContext(DbContextOptions<CommandesDbContext> options)
         : base(options)
@@ -29,9 +28,29 @@ public class CommandesDbContext : AbpDbContext<CommandesDbContext>, ICommandesDb
         {
             builder.Entity<Panier>(commande =>
             {
+                commande.ToTable(CommandesDbProperties.DbTablePrefix + "Commandes", CommandesDbProperties.DbSchema);
                 commande.ConfigureByConvention();
-                commande.ToTable(CommandesDbProperties.DbTablePrefix + "Commande", CommandesDbProperties.DbSchema);
-                commande.OwnsMany(c => c.Articles);
+                commande.HasMany(c => c.ArticleJoinEntities).WithOne().HasForeignKey(je => je.ArticleId).IsRequired();
+            });
+            
+            builder.Entity<Article>(article =>
+            {
+                article.ToTable(CommandesDbProperties.DbTablePrefix + "Articles", CommandesDbProperties.DbSchema);
+                article.ConfigureByConvention();
+            });
+
+            builder.Entity<ArticleDansPanierJoinEntity>(ap =>
+            {
+                ap.ToTable(CommandesDbProperties.DbTablePrefix + "ArticleDansPanierJoinEntities",
+                    CommandesDbProperties.DbSchema);
+                ap.ConfigureByConvention();
+
+                ap.HasKey(je => new { je.PanierId, je.ArticleId });
+
+                ap.HasOne<Panier>().WithMany(p => p.ArticleJoinEntities).HasForeignKey(je => je.PanierId).IsRequired();
+                ap.HasOne<Article>().WithMany().HasForeignKey(je => je.ArticleId).IsRequired();
+                
+                ap.HasIndex(je => new { je.PanierId, je.ArticleId });
             });
         }
     }

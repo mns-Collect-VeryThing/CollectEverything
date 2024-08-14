@@ -7,6 +7,6 @@ namespace CollectEverything.Commandes.Paniers
     public class Panier : FullAuditedAggregateRoot<Guid>
     {
         public Guid ShopId { get; set; }
-        public IEnumerable<Article> Articles { get; set; }
+        public IEnumerable<ArticleDansPanierJoinEntity> ArticleJoinEntities { get; set; }
     }
 }
