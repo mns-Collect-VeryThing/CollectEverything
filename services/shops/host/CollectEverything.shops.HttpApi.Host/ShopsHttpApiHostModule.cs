@@ -64,11 +64,6 @@ public class ShopsHttpApiHostModule : AbpModule
                 builder.AllowAnyMethod();
             });
         });
-        
-        Configure<AbpDbContextOptions>(options =>
-        {
-            options.UseSqlServer();
-        });
 
         Configure<AbpMultiTenancyOptions>(options =>
         {
