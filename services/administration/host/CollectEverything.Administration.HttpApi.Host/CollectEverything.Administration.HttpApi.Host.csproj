@@ -18,6 +18,7 @@
         <ProjectReference Include="..\..\..\product\src\CollectEverything.Product.Application.Contracts\CollectEverything.Product.Application.Contracts.csproj" />
         <ProjectReference Include="..\..\..\product\src\CollectEverything.Product.Application\CollectEverything.Product.Application.csproj" />
         <ProjectReference Include="..\..\..\saas\src\CollectEverything.SaaS.Application.Contracts\CollectEverything.SaaS.Application.Contracts.csproj" />
+        <ProjectReference Include="..\..\..\shops\src\CollectEverything.shops.Application.Contracts\CollectEverything.Shops.Application.Contracts.csproj" />
         <ProjectReference Include="..\..\src\CollectEverything.Administration.HttpApi\CollectEverything.Administration.HttpApi.csproj" />
         <ProjectReference Include="..\..\src\CollectEverything.Administration.Application\CollectEverything.Administration.Application.csproj" />
         <ProjectReference Include="..\..\src\CollectEverything.Administration.EntityFrameworkCore\CollectEverything.Administration.EntityFrameworkCore.csproj" />

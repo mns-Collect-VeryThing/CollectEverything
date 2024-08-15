@@ -16,6 +16,7 @@ using CollectEverything.IdentityService;
 using CollectEverything.IdentityService.EntityFrameworkCore;
 using CollectEverything.Product;
 using CollectEverything.SaaS;
+using CollectEverything.Shops;
 using IdentityModel;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
@@ -34,7 +35,8 @@ namespace CollectEverything.Administration;
     typeof(IdentityServiceEntityFrameworkCoreModule),
     typeof(AbpIdentityDomainModule),
     typeof(SaaSApplicationContractsModule),
-    typeof(ProductApplicationContractsModule)
+    typeof(ProductApplicationContractsModule),
+    typeof(ShopsApplicationContractsModule)
 )]
 public class AdministrationHttpApiHostModule : AbpModule
 {
