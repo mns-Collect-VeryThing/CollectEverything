@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using CollectEverything.Hosting.Shared;
 using IdentityModel;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -37,19 +38,10 @@ using Volo.Abp.VirtualFileSystem;
 namespace CollectEverything.Shops;
 
 [DependsOn(
+    typeof(CollectEverythingHostingModule),
     typeof(ShopsApplicationModule),
     typeof(ShopsEntityFrameworkCoreModule),
-    typeof(ShopsHttpApiModule),
-    typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
-    typeof(AbpAutofacModule),
-    typeof(AbpCachingStackExchangeRedisModule),
-    typeof(AbpEntityFrameworkCoreSqlServerModule),
-    typeof(AbpAuditLoggingEntityFrameworkCoreModule),
-    typeof(AbpPermissionManagementEntityFrameworkCoreModule),
-    typeof(AbpSettingManagementEntityFrameworkCoreModule),
-    typeof(AbpTenantManagementEntityFrameworkCoreModule),
-    typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpSwashbuckleModule)
+    typeof(ShopsHttpApiModule)
     )]
 public class ShopsHttpApiHostModule : AbpModule
 {

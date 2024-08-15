@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\shared\CollectEverything.Hosting.Shared\CollectEverything.Hosting.Shared.csproj" />
     <ProjectReference Include="..\..\src\CollectEverything.Shops.HttpApi\CollectEverything.Shops.HttpApi.csproj" />
     <ProjectReference Include="..\..\src\CollectEverything.Shops.Application\CollectEverything.Shops.Application.csproj" />
     <ProjectReference Include="..\..\src\CollectEverything.Shops.EntityFrameworkCore\CollectEverything.Shops.EntityFrameworkCore.csproj" />
