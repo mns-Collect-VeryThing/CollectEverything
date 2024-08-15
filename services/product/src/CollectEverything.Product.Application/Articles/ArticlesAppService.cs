@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper.Internal.Mappers;
 using CollectEverything.Product.Articles.DTOs.Input;
 using CollectEverything.Product.Articles.DTOs.Output;
+using CollectEverything.Product.Events.Articles;
+using Volo.Abp.EventBus.Distributed;
 using Volo.Abp.Guids;
-using Volo.Abp.ObjectMapping;
 
 namespace CollectEverything.Product.Articles
 {
@@ -14,11 +14,13 @@ namespace CollectEverything.Product.Articles
     {
         private readonly IArticleRepository _articleRepository;
         private readonly IGuidGenerator _guidGenerator;
+        private readonly IDistributedEventBus _distributedEventBus;
 
-        public ArticlesAppService(IArticleRepository articleRepository, IGuidGenerator guidGenerator)
+        public ArticlesAppService(IArticleRepository articleRepository, IGuidGenerator guidGenerator, IDistributedEventBus distributedEventBus)
         {
             _articleRepository = articleRepository;
             _guidGenerator = guidGenerator;
+            _distributedEventBus = distributedEventBus;
         }
 
         public async Task<List<ArticleDto>> GetListArticles()
@@ -37,7 +39,8 @@ namespace CollectEverything.Product.Articles
         {
             var article = new Article(_guidGenerator.Create(), createArticleDto.Nom, createArticleDto.Prix, createArticleDto.Quantity);
             article = await _articleRepository.InsertAsync(article);
-            return ObjectMapper.Map<Article, ArticleDto>(article);
+            await _distributedEventBus.PublishAsync(ObjectMapper.Map<Article, ArticleCreatedEto>(article));
+            return ObjectMapper.Map<Article, ArticleDto>(article);;
         }
 
         public async Task DeleteArticle(Guid idArticle)
