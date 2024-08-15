@@ -29,10 +29,10 @@ COPY ["services/commandes/src/CollectEverything.Commandes.EntityFrameworkCore/Co
 COPY ["services/commandes/src/CollectEverything.Commandes.Application.Contracts/CollectEverything.Commandes.Application.Contracts.csproj", "services/commandes/src/CollectEverything.Commandes.Application.Contracts/"]
 COPY ["shared/CollectEverything.Microservice.Shared/CollectEverything.Microservice.Shared.csproj", "shared/CollectEverything.Microservice.Shared/"]
 COPY ["shared/CollectEverything.Hosting.Shared/CollectEverything.Hosting.Shared.csproj", "shared/CollectEverything.Hosting.Shared/"]
-COPY ["services/shops/src/CollectEverything.shops.Domain.Shared/CollectEverything.Shops.Domain.Shared.csproj", "services/shops/src/CollectEverything.shops.Domain.Shared/"]
-COPY ["services/shops/src/CollectEverything.shops.EntityFrameworkCore/CollectEverything.Shops.EntityFrameworkCore.csproj", "services/shops/src/CollectEverything.shops.EntityFrameworkCore/"]
-COPY ["services/shops/src/CollectEverything.shops.Domain/CollectEverything.Shops.Domain.csproj", "services/shops/src/CollectEverything.shops.Domain/"]
-COPY ["services/shops/src/CollectEverything.shops.Application.Contracts/CollectEverything.Shops.Application.Contracts.csproj", "services/shops/src/CollectEverything.shops.Application.Contracts/"]
+COPY ["services/shops/src/CollectEverything.Shops.Domain.Shared/CollectEverything.Shops.Domain.Shared.csproj", "services/shops/src/CollectEverything.Shops.Domain.Shared/"]
+COPY ["services/shops/src/CollectEverything.Shops.EntityFrameworkCore/CollectEverything.Shops.EntityFrameworkCore.csproj", "services/shops/src/CollectEverything.Shops.EntityFrameworkCore/"]
+COPY ["services/shops/src/CollectEverything.Shops.Domain/CollectEverything.Shops.Domain.csproj", "services/shops/src/CollectEverything.Shops.Domain/"]
+COPY ["services/shops/src/CollectEverything.Shops.Application.Contracts/CollectEverything.Shops.Application.Contracts.csproj", "services/shops/src/CollectEverything.Shops.Application.Contracts/"]
 RUN dotnet restore "shared/CollectEverything.DbMigrator/CollectEverything.DbMigrator.csproj"
 COPY . .
 WORKDIR "/src/shared/CollectEverything.DbMigrator"

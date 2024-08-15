@@ -159,37 +159,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shops", "shops", "{4922BB70
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "host", "host", "{0ED68079-A14A-4B89-AC96-49ECC99E8437}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Host.Shared", "services\shops\host\CollectEverything.shops.Host.Shared\CollectEverything.Shops.Host.Shared.csproj", "{6EA74099-6B44-41F1-815C-6224B7B36EFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Host.Shared", "services\shops\host\CollectEverything.Shops.Host.Shared\CollectEverything.Shops.Host.Shared.csproj", "{6EA74099-6B44-41F1-815C-6224B7B36EFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.HttpApi.Host", "services\shops\host\CollectEverything.shops.HttpApi.Host\CollectEverything.Shops.HttpApi.Host.csproj", "{C1E75EF4-C80A-4BC9-955D-84965AD2FEDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.HttpApi.Host", "services\shops\host\CollectEverything.Shops.HttpApi.Host\CollectEverything.Shops.HttpApi.Host.csproj", "{C1E75EF4-C80A-4BC9-955D-84965AD2FEDA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{05A5BDCD-3498-46D5-819F-9516DC466775}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Application", "services\shops\src\CollectEverything.shops.Application\CollectEverything.Shops.Application.csproj", "{C6B81CDA-DDB6-4EE9-AD6D-0F8E1D0B27C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Application", "services\shops\src\CollectEverything.Shops.Application\CollectEverything.Shops.Application.csproj", "{C6B81CDA-DDB6-4EE9-AD6D-0F8E1D0B27C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Application.Contracts", "services\shops\src\CollectEverything.shops.Application.Contracts\CollectEverything.Shops.Application.Contracts.csproj", "{168DBC2F-11D4-40B0-9455-A66A9A8B0CB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Application.Contracts", "services\shops\src\CollectEverything.Shops.Application.Contracts\CollectEverything.Shops.Application.Contracts.csproj", "{168DBC2F-11D4-40B0-9455-A66A9A8B0CB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Domain", "services\shops\src\CollectEverything.shops.Domain\CollectEverything.Shops.Domain.csproj", "{1B5159CD-F076-423B-90B5-A0C9B1FCA20E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Domain", "services\shops\src\CollectEverything.Shops.Domain\CollectEverything.Shops.Domain.csproj", "{1B5159CD-F076-423B-90B5-A0C9B1FCA20E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Domain.Shared", "services\shops\src\CollectEverything.shops.Domain.Shared\CollectEverything.Shops.Domain.Shared.csproj", "{A93ED70A-FF66-4801-A990-C5E0EA216657}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Domain.Shared", "services\shops\src\CollectEverything.Shops.Domain.Shared\CollectEverything.Shops.Domain.Shared.csproj", "{A93ED70A-FF66-4801-A990-C5E0EA216657}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.EntityFrameworkCore", "services\shops\src\CollectEverything.shops.EntityFrameworkCore\CollectEverything.Shops.EntityFrameworkCore.csproj", "{40BF7CEC-B6A8-41FC-A442-BD60DE5AB433}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.EntityFrameworkCore", "services\shops\src\CollectEverything.Shops.EntityFrameworkCore\CollectEverything.Shops.EntityFrameworkCore.csproj", "{40BF7CEC-B6A8-41FC-A442-BD60DE5AB433}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.HttpApi", "services\shops\src\CollectEverything.shops.HttpApi\CollectEverything.Shops.HttpApi.csproj", "{76459E6D-7708-4F8F-AC9C-BF060CD9B49B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.HttpApi", "services\shops\src\CollectEverything.Shops.HttpApi\CollectEverything.Shops.HttpApi.csproj", "{76459E6D-7708-4F8F-AC9C-BF060CD9B49B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.HttpApi.Client", "services\shops\src\CollectEverything.shops.HttpApi.Client\CollectEverything.Shops.HttpApi.Client.csproj", "{58448816-CBF4-4D82-ADFA-1687D683FB27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.HttpApi.Client", "services\shops\src\CollectEverything.Shops.HttpApi.Client\CollectEverything.Shops.HttpApi.Client.csproj", "{58448816-CBF4-4D82-ADFA-1687D683FB27}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8F87E0C9-4212-4A24-BE97-032EE28F0A4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Application.Tests", "services\shops\test\CollectEverything.shops.Application.Tests\CollectEverything.Shops.Application.Tests.csproj", "{CD1EE6EF-1D75-431E-AC0F-669CC5527756}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Application.Tests", "services\shops\test\CollectEverything.Shops.Application.Tests\CollectEverything.Shops.Application.Tests.csproj", "{CD1EE6EF-1D75-431E-AC0F-669CC5527756}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Domain.Tests", "services\shops\test\CollectEverything.shops.Domain.Tests\CollectEverything.Shops.Domain.Tests.csproj", "{D32DC825-C44F-4ACE-A921-78C12E6B7CE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.Domain.Tests", "services\shops\test\CollectEverything.Shops.Domain.Tests\CollectEverything.Shops.Domain.Tests.csproj", "{D32DC825-C44F-4ACE-A921-78C12E6B7CE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.EntityFrameworkCore.Tests", "services\shops\test\CollectEverything.shops.EntityFrameworkCore.Tests\CollectEverything.Shops.EntityFrameworkCore.Tests.csproj", "{C9570EA3-28CF-4BE7-BD1A-53183EE00B7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.EntityFrameworkCore.Tests", "services\shops\test\CollectEverything.Shops.EntityFrameworkCore.Tests\CollectEverything.Shops.EntityFrameworkCore.Tests.csproj", "{C9570EA3-28CF-4BE7-BD1A-53183EE00B7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.HttpApi.Client.ConsoleTestApp", "services\shops\test\CollectEverything.shops.HttpApi.Client.ConsoleTestApp\CollectEverything.Shops.HttpApi.Client.ConsoleTestApp.csproj", "{1D8B5EBD-BD7E-4855-AB2E-7E3692E209A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.HttpApi.Client.ConsoleTestApp", "services\shops\test\CollectEverything.Shops.HttpApi.Client.ConsoleTestApp\CollectEverything.Shops.HttpApi.Client.ConsoleTestApp.csproj", "{1D8B5EBD-BD7E-4855-AB2E-7E3692E209A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.TestBase", "services\shops\test\CollectEverything.shops.TestBase\CollectEverything.Shops.TestBase.csproj", "{6F2B4BC7-9823-47AC-86D9-51F4C3C40D89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectEverything.Shops.TestBase", "services\shops\test\CollectEverything.Shops.TestBase\CollectEverything.Shops.TestBase.csproj", "{6F2B4BC7-9823-47AC-86D9-51F4C3C40D89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
