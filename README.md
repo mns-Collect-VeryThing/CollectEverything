@@ -51,3 +51,31 @@ la gateway redirige aussi ma requête correctement.
 | Commandes        | 7005 + 7105 |              |              |
 | Shops            | 7006 + 7106 |              |              |
 | Front Blazor     | 5000 + 5001 |              |              |
+
+## Comment ajouter un nouveau microservice
+
+Basé sur le tutoriel là : https://blog.antosubash.com/posts/netcore-microservice-with-abp-add-new-service-part-11
+
+Pourun exemple, voir la pull request là : https://github.com/mns-Collect-VeryThing/CollectEverything/pull/15
+
+1) Exécuter le script ``create-new-service.ps1`` avec le nom du service en paramètre. Exemple : ``./create-new-service.ps1 Shops``
+2) Supprimer les projets créés inutiles : AuthServer, Installer, MongoDB, MongoDB.Tests 
+3) Mettre à jour les dépendences du nouveau service (HttpApiHostModule)
+4) Configurer le service pour qu'il utilise un format de date compatible avec PostgreSQL
+5) Désactiver les CORS (ou les configurer correctement)
+6) Enlever l'ancienne conf de connection à la base de données
+7) Activer les "Auto-APIs" (Appservice = Controller)
+8) Désactiver les fichiers phyisiques dans le container
+9) Retirer les dossiers EfCore et Migrations du service
+10) Mettre à jour le appsettings.json du service
+11) Créer le Dockerfile
+12) Activer les repositories par défaut
+13) Créer la classse DbContextFactory et installer le package PostGreSQL requis
+14) Retirer le package nuget SQL Server
+15) Installer le package nuget EfCore.Tools 8.0.1
+16) Ajouter le nom du nouveau service aux DNS autorisés dans la configuration du certificat auto-signé
+17) Générer le nouveau certificat depuis un cmd OpenSSL ``openssl req -x509 -new -nodes -key myprivatekey.key -sha256 -days 365 -out certificate.crt -config openssl.cnf`` puis ``openssl pkcs12 -export -out certificate.pfx -inkey myprivatekey.key -in certificate.crt -certfile intermediate.crt``
+18) Ajouter le nouveau service au docker-compose
+19) Ajouter le nouveau service à la gateway
+20) Ajouter le nouveau service au DbMigrator : appsettings.json, Dockerfile, classes DbMigratorService, DbMigratorModule
+21) Ajouter le nouveau service au AdministrationHttpApiHostModule
