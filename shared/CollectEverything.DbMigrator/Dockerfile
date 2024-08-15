@@ -27,6 +27,10 @@ COPY ["services/commandes/src/CollectEverything.Commandes.Domain.Shared/CollectE
 COPY ["services/commandes/src/CollectEverything.Commandes.Domain/CollectEverything.Commandes.Domain.csproj", "services/commandes/src/CollectEverything.Commandes.Domain/"]
 COPY ["services/commandes/src/CollectEverything.Commandes.EntityFrameworkCore/CollectEverything.Commandes.EntityFrameworkCore.csproj", "services/commandes/src/CollectEverything.Commandes.EntityFrameworkCore/"]
 COPY ["services/commandes/src/CollectEverything.Commandes.Application.Contracts/CollectEverything.Commandes.Application.Contracts.csproj", "services/commandes/src/CollectEverything.Commandes.Application.Contracts/"]
+COPY ["services/shops/src/CollectEverything.Shops.Domain.Shared/CollectEverything.Shops.Domain.Shared.csproj", "services/shops/src/CollectEverything.Shops.Domain.Shared/"]
+COPY ["services/shops/src/CollectEverything.Shops.Domain/CollectEverything.Shops.Domain.csproj", "services/shops/src/CollectEverything.Shops.Domain/"]
+COPY ["services/shops/src/CollectEverything.Shops.EntityFrameworkCore/CollectEverything.Shops.EntityFrameworkCore.csproj", "services/shops/src/CollectEverything.Shops.EntityFrameworkCore/"]
+COPY ["services/shops/src/CollectEverything.Shops.Application.Contracts/CollectEverything.Shops.Application.Contracts.csproj", "services/shops/src/CollectEverything.Shops.Application.Contracts/"]
 COPY ["shared/CollectEverything.Microservice.Shared/CollectEverything.Microservice.Shared.csproj", "shared/CollectEverything.Microservice.Shared/"]
 COPY ["shared/CollectEverything.Hosting.Shared/CollectEverything.Hosting.Shared.csproj", "shared/CollectEverything.Hosting.Shared/"]
 RUN dotnet restore "shared/CollectEverything.DbMigrator/CollectEverything.DbMigrator.csproj"

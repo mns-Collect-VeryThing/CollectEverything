@@ -9,6 +9,7 @@ using CollectEverything.Product;
 using CollectEverything.Product.EntityFrameworkCore;
 using CollectEverything.SaaS;
 using CollectEverything.SaaS.EntityFrameworkCore;
+using CollectEverything.Shops;
 using Volo.Abp.Autofac;
 using Volo.Abp.Modularity;
 
@@ -25,7 +26,9 @@ namespace CollectEverything.DbMigrator;
     typeof(ProductEntityFrameworkCoreModule),
     typeof(ProductApplicationContractsModule),
     typeof(CommandesEntityFrameworkCoreModule),
-    typeof(CommandesApplicationContractsModule)
+    typeof(CommandesApplicationContractsModule),
+    typeof(ShopsApplicationContractsModule),
+    typeof(ShopsApplicationContractsModule)
 )]
 public class CollectEverythingDbMigratorModule : AbpModule
 {

@@ -10,6 +10,7 @@ using CollectEverything.Commandes.EntityFrameworkCore;
 using CollectEverything.IdentityService.EntityFrameworkCore;
 using CollectEverything.Product.EntityFrameworkCore;
 using CollectEverything.SaaS.EntityFrameworkCore;
+using CollectEverything.Shops.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
@@ -100,6 +101,7 @@ public class CollectEverythingDbMigrationService : ITransientDependency
             await MigrateDatabaseAsync<IdentityServiceDbContext>(cancellationToken);
             await MigrateDatabaseAsync<ProductDbContext>(cancellationToken);
             await MigrateDatabaseAsync<CommandesDbContext>(cancellationToken);
+            await MigrateDatabaseAsync<ShopsDbContext>(cancellationToken);
 
             await uow.CompleteAsync(cancellationToken);
         }
