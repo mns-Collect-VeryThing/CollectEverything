@@ -6,32 +6,15 @@ There is also a [YouTube Video](https://www.youtube.com/watch?v=PFFNHQUn74A) for
 ## Prérequis :
 - .NET 8 : https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 - .NET 6 : https://dotnet.microsoft.com/en-us/download/dotnet/6.0
-- ~~Tye : ``dotnet tool install -g Microsoft.Tye --version "0.11.0-alpha.22111.1"``~~
 - Docker : https://www.docker.com/products/docker-desktop/
-- ABP CLI
+- ABP CLI : ``dotnet tool install -g volo.abp.cli --version "8.0.2"``
 
 ## Comment lancer le projet
 
-1) ~~Lancer Docker~~
-2) ~~Ouvrir un shell/powershell dans le dossier ``./docker``~~
-3) ~~``docker-compose up -d`` pour lancer les services de base de données (Postgres) et de cache (Redis)~~
-4) ~~Lancer le projet ``shared.CollectEverything.DbMigrator``, par IDE (plante sur Rider la première fois) ou 
-par ``dotnet run``~~ 
-5) ~~``tye run`` à la racine du projet pour lancer l'intégralité des micro-services~~
-
-### Alternative
-
 1) Se placer à la racine du projet
-2) ``abp install-libs`` pour installer les dépendances NPM
+2) ~~``abp install-libs`` pour installer les dépendances NPM~~
 3) Se placer dans le dossier ./docker
-4) ``docker compose -f .\docker-compose-dev.yaml up -d --build`` pour lancer tous les services en dev
-
-## Comment développer sur le projet
-
-Si travail sur un micro-service en particulier, il est possible de le sortir du process Tye.
-Pour le faire, commenter ses lignes de configuration dans le fichier ``tye.yaml`` et le lancer par l'IDE de 
-manière classique.
-
+4) ``docker compose -f .\docker-compose.yaml up -d --build`` pour lancer tous les services
 
 ## Comment utiliser le project
 
@@ -55,19 +38,16 @@ la gateway redirige aussi ma requête correctement.
 
 ### En dev
 
-| Service           | Port        | Username     | Password     |
-|-------------------|-------------|--------------|--------------|
-| Tye Dashboard     | 8000        |              |              |
-| Authentification  | 7600 + 7601 | admin        | 1q2w3E*      |
-| Postgre           | 5432        | postgres     | postgres     |
-| Redis             | 6379        |              |              |
-| Gateway           | 7500 + 7501 |              |              |
-| Administration    | 7001 + 7101 |              |              |
-| Identity          | 7002 + 7102 |              |              |
-| Saas              | 7003 + 7103 |              |              |
-| Product           | 7004 + 7104 |              |              |
-| Front Blazor      | 5000 + 5001 |              |              |
-| Front Angular     | 4200        |              |              |
-|                   | 44307       |              |              |
-|                   | 44346       |              |              |
-
+| Service          | Port        | Username     | Password     |
+|------------------|-------------|--------------|--------------|
+| Authentification | 7600 + 7601 | admin        | 1q2w3E*      |
+| Postgre          | 5432        | postgres     | postgres     |
+| Redis            | 6379        |              |              |
+| Gateway          | 7500 + 7501 |              |              |
+| Administration   | 7001 + 7101 |              |              |
+| Identity         | 7002 + 7102 |              |              |
+| Saas             | 7003 + 7103 |              |              |
+| Product          | 7004 + 7104 |              |              |
+| Commandes        | 7005 + 7105 |              |              |
+| Shops            | 7006 + 7106 |              |              |
+| Front Blazor     | 5000 + 5001 |              |              |
