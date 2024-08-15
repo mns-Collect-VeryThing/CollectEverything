@@ -5,6 +5,7 @@ namespace CollectEverything.Product.Articles
 {
     public class Article : FullAuditedAggregateRoot<Guid>
     {
+        public Guid ShopId { get; set; }
         public string Nom { get; set; }
         public double Prix { get; set; }
         public int Quantity { get; set; }
