@@ -59,6 +59,8 @@
         <ProjectReference Include="..\..\services\product\src\CollectEverything.Product.EntityFrameworkCore\CollectEverything.Product.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\..\services\saas\src\CollectEverything.SaaS.Application.Contracts\CollectEverything.SaaS.Application.Contracts.csproj" />
         <ProjectReference Include="..\..\services\saas\src\CollectEverything.SaaS.EntityFrameworkCore\CollectEverything.SaaS.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\..\services\shops\src\CollectEverything.Shops.Application.Contracts\CollectEverything.Shops.Application.Contracts.csproj" />
+        <ProjectReference Include="..\..\services\shops\src\CollectEverything.Shops.EntityFrameworkCore\CollectEverything.Shops.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\CollectEverything.Microservice.Shared\CollectEverything.Microservice.Shared.csproj" />
     </ItemGroup>
 
