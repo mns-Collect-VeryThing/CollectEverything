@@ -35,7 +35,7 @@ namespace CollectEverything.Product.Articles
             return ObjectMapper.Map<Article, ArticleDto>(article);
         }
 
-        public async Task<ArticleDto> CreateArticle(CreateArticleDto createArticleDto)
+        public async virtual Task<ArticleDto> CreateArticle(CreateArticleDto createArticleDto)
         {
             var article = new Article(_guidGenerator.Create(), createArticleDto.Nom, createArticleDto.Prix, createArticleDto.Quantity);
             article = await _articleRepository.InsertAsync(article);
@@ -49,7 +49,7 @@ namespace CollectEverything.Product.Articles
             await _articleRepository.DeleteAsync(article);
         }
 
-        public async Task<ArticleDto> UpdateArticle(UpdateArticleDto updateArticleDto)
+        public async virtual Task<ArticleDto> UpdateArticle(UpdateArticleDto updateArticleDto)
         {
             var article = await _articleRepository.GetAsync(updateArticleDto.Id);
             article.Nom = updateArticleDto.Nom;
